@@ -12,8 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-   @include('mensajes')
-   @stack('scripts')
+    @include('mensajes')
+    @stack('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -21,15 +21,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   @stack('styles')
+    @stack('styles')
 </head>
 <body>
     <div id="app">
-       <div id="particles-js"></div>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <div id="particles-js"></div>
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: transparent; box-shadow: 0 1.5px 3px rgba(3, 23, 121, 0.22);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid">
+                    <img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid">
                     {{--{{ config('app.name', 'Laravel') }}--}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,37 +38,23 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                   <ul class="nav navbar-nav mr-auto">
-                      @can('products.index')
-                         <li class="nav-item">
-                            <a href="{{ route('products.index') }}" class="nav-link">{{ __('Products') }}</a>
-                         </li>
-                      @endcan
-                      @can('users.index')
-                         <li class="nav-item">
-                            <a href="{{ route('users.index') }}" class="nav-link">{{ __('Users') }}</a>
-                         </li>
-                      @endcan
-                      @can('roles.index')
-                         <li class="nav-item">
-                            <a href="{{ route('roles.index') }}" class="nav-link">{{ __('Roles') }}</a>
-                         </li>
-                      @endcan
-                   </ul>
+                    <ul class="nav navbar-nav mr-auto">
+
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                       <li class="nav-item dropdown">
-                          <a id="navbarDropdownLanguage" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                             {{ __('Language') }} <span class="caret"></span>
-                          </a>
+                                                <li class="nav-item dropdown">
+                            <a id="navbarDropdownLanguage" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('Language') }} <span class="caret"></span>
+                            </a>
 
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownLanguage">
-                             <a class="dropdown-item" href="{{ url('lang', 'es') }}">{{ __('Spanish') }}</a>
-                             <a class="dropdown-item" href="{{ url('lang', 'en') }}">{{ __('English') }}</a>
-                          </div>
-                       </li>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownLanguage">
+                                <a class="dropdown-item" href="{{ url('lang', 'es') }}">{{ __('Spanish') }}</a>
+                                <a class="dropdown-item" href="{{ url('lang', 'en') }}">{{ __('English') }}</a>
+                            </div>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -83,6 +69,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

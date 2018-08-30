@@ -45,3 +45,7 @@ Route::group(['middleware' => ['lang']], function () {
     /*Fin Routes Auth*/
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

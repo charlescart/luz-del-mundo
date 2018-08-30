@@ -16,8 +16,11 @@
 @endsection
 @push('styles')
     <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+
 @endpush
+
 @push('scripts')
+
     <script src="{{ asset('js/common/common-functions.js') }}"></script>
     <script src="{{ asset('js/plugins/particles/particles.min.js') }}"></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
