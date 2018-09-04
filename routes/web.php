@@ -13,7 +13,7 @@
 
 Route::get('lang/{lang}', function ($lang) {
     session(['lang' => $lang]);
-    App::setLocale(session('lang'));
+    App::setLocale(session('lang', config('app.locale')));
     return \Redirect::back();
 })->where(['lang' => 'en|es']);
 

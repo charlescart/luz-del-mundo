@@ -16,9 +16,9 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        if (!empty(session('lang', 'es'))) {
-            \App::setLocale(session('lang', 'es'));
-            Carbon::setLocale(session('lang', 'es'));
+        if (!empty(session('lang', config('app.locale')))) {
+            \App::setLocale(session('lang', config('app.locale')));
+            Carbon::setLocale(session('lang', config('app.locale')));
         }
         return $next($request);
     }
