@@ -7,19 +7,40 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Instrucciones de Instalación
+- Hacer un git clone ubicandote en tu directorio de laragon <b>../www</b>.
+<pre class=" language-php">
+    <code class=" language-php">
+        git clone git@gitlab.com:charles_cart/luz-del-mundo.git
+    </code>
+</pre>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+- En la consola aplicar un <b>composer install</b> y <b>npm install --save-dev</b>.
+<pre class=" language-php">
+    <code class=" language-php">
+        composer install
+        npm install -d
+    </code>
+</pre>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+- En consola aplicar <b>php artisan migrate</b>.
+<pre class=" language-php">
+    <code class=" language-php">
+        php artisan migrate
+    </code>
+</pre>
+
+- Usuarios para autenticarse, la clave para todos es <b>secret</b>
+<pre class=" language-php">
+    <code class=" language-php">
+        aaron@gmail.com
+        oriana@gmail.com
+        oriannys@gmail.com
+        gonzalo@gmail.com
+        charlesrodriguez19@gmail.com
+    </code>
+</pre>
 
 ## Learning Laravel
 
@@ -36,8 +57,6 @@ We would like to extend our thanks to the following sponsors for helping fund on
 - **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
 - **[Cubet Techno Labs](https://cubettech.com)**
 - **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
 - [User10](https://user10.com)
@@ -48,9 +67,6 @@ We would like to extend our thanks to the following sponsors for helping fund on
 - [Runtime Converter](http://runtimeconverter.com/)
 - [WebL'Agence](https://weblagence.com/)
 - [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
 
 ## Contributing
 
