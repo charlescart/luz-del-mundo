@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col">
+            <div class="col text-secondary">
                 <div class="display-4 text-center" style="margin-top: 150px;">
                     {{ __('Light of the World') }}
                 </div>

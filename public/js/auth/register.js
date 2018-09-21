@@ -2,7 +2,7 @@
 * Ing.Charles Rodriguez
 */
 
-function Welcome(commonFunctions) {
+function Register(commonFunctions) {
     var selft = this;
     commonFunctions.constructor();
     this.constructor = function () {
@@ -14,13 +14,15 @@ function Welcome(commonFunctions) {
             commonFunctions.particles();
             /* Fin de particles de fondo */
 
-
+            /* Config. de input material*/
+            commonFunctions.config_input_material();
+            /* Fin de config. de input material*/
 
         }
     /* Funciones Locales */
 }
 
 $(function () {
-    var welcome = new Welcome(new commonFunctions());
-    welcome.constructor();
+    var register = new Register(new commonFunctions());
+    register.constructor();
 });

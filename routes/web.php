@@ -20,11 +20,11 @@ Route::get('lang/{lang}', function ($lang) {
 Route::group(['middleware' => ['lang']], function () {
 
     /* Routes de Users */
-    Route::get('/users', 'UserController@index')->name('users.index');
+    /*Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/{id}', 'UserController@show')->name('users.show');
     Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
     Route::put('/users/{id}', 'UserController@update')->name('users.update');
-    Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');
+    Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');*/
     /* Fin de Routes de Users */
 
     /*Routes de Products*/
@@ -32,20 +32,16 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getProducts', 'ProductController@getProducts')->name('products.getProducts');
     /*Fin de Routes de Products*/
 
-    Route::resource('roles', 'RoleController');
+//    Route::resource('roles', 'RoleController');
 
     Route::get('/', function () {
         return view('welcome');
     });
 
     /*Routes Auth*/
-    Auth::routes();
+    Auth::routes(['verify' => true]);
 
     Route::get('/home', 'HomeController@index')->name('home');
     /*Fin Routes Auth*/
 
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

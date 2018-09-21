@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     @include('mensajes')
@@ -26,11 +29,11 @@
 <body>
     <div id="app">
         <div id="particles-js"></div>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: transparent; box-shadow: 0 1.5px 3px rgba(3, 23, 121, 0.22);">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel border-bottom-blue bd-navbar p-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid">
-                    {{--{{ config('app.name', 'Laravel') }}--}}
+                    <img src="{{ asset('img/logo_2.png') }}" alt="" class="img-fluid">
+                    <span class="text-luzdelmundo">{{ config('app.name', 'Laravel') }}</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,14 +48,30 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                                                <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a id="navbarDropdownLanguage" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Language') }} <span class="caret"></span>
+                                @switch(App::getLocale())
+                                    @case('en')
+                                        {{ __('English') }}
+                                        @break
+
+                                    @case('es')
+                                        {{ __('Spanish') }}
+                                        @break
+
+                                    @default
+                                        {{ __('English') }}
+                                @endswitch
+                                <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownLanguage">
-                                <a class="dropdown-item" href="{{ url('lang', 'es') }}">{{ __('Spanish') }}</a>
-                                <a class="dropdown-item" href="{{ url('lang', 'en') }}">{{ __('English') }}</a>
+                                <a class="dropdown-item" href="{{ url('lang', 'es') }}">
+                                    {{ __('Spanish') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ url('lang', 'en') }}">
+                                    {{ __('English') }}
+                                </a>
                             </div>
                         </li>
                         @guest
@@ -88,9 +107,21 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="min-height: 563px;">
             @yield('content')
         </main>
+
     </div>
+    <footer class="bg-white border-top text-secondary" style="min-height: 645px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="text-center" style="margin-top: 150px;">
+                        Footer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

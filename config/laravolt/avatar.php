@@ -44,7 +44,7 @@ return [
 
     // Fonts used to render text.
     // If contains more than one fonts, randomly selected based on name supplied
-    'fonts'    => [__DIR__.'/../fonts/OpenSans-Bold.ttf', __DIR__.'/../fonts/rockwell.ttf'],
+    'fonts'    => [__DIR__.'/../../public/fonts/roboto/Roboto-Light.ttf',],
 
     // List of foreground colors to be used, randomly selected based on name supplied
     'foregrounds'   => [
@@ -71,7 +71,7 @@ return [
     ],
 
     'border'    => [
-        'size'  => 1,
+        'size'  => 0,
 
         // border color, available value are:
         // 'foreground' (same as foreground color)

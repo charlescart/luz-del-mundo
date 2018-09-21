@@ -9,3 +9,7 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+@endpush
