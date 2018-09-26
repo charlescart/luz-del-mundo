@@ -12,9 +12,11 @@
                         @csrf
 
                         <div class="form-group">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} input-material" name="email" value="{{ old('email') }}" required autofocus autocomplete="off">
-                            <label for="email" class="col-form-label text-md-right label-material">{{ __('E-Mail Address') }}</label>
-
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} input-material" name="email" value="{{ old('email') }}" required autofocus autocomplete="off">
+                                <label for="email" class="col-form-label text-md-right label-material">
+                                    <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+                                    {{ __('E-Mail Address') }}
+                                </label>
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -24,7 +26,10 @@
 
                         <div class="form-group">
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} input-material" name="password" required>
-                            <label for="password" class="col-form-label text-md-right label-material">{{ __('Password') }}</label>
+                            <label for="password" class="col-form-label text-md-right label-material">
+                                <i class="fa fa-lock mr-sm-2" aria-hidden="true"></i>
+                                {{ __('Password') }}
+                            </label>
 
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" role="alert">
@@ -44,7 +49,7 @@
                         </div>
 
                         <div class="form-group text-center mt-4">
-                                <button type="submit" class="btn btn-outline-primary rounded-0" style="min-width: 6rem;">
+                                <button type="submit" class="btn btn-outline-primary" style="min-width: 10rem;">
                                     {{ __('Login') }}
                                 </button>
 

@@ -32,7 +32,7 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getProducts', 'ProductController@getProducts')->name('products.getProducts');
     /*Fin de Routes de Products*/
 
-//    Route::resource('roles', 'RoleController');
+    Route::resource('roles', 'RoleController');
 
     Route::get('/', function () {
         return view('welcome');

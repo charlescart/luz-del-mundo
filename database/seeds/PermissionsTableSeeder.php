@@ -20,22 +20,24 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'products.show']);
         Permission::create(['name' => 'products.create']);
         Permission::create(['name' => 'products.destroy']);
+        Permission::create(['name' => 'roles.index']);
 
         //Admin
-        $admin = Role::create(['name' => 'Admin']);
+        $admin = Role::create(['name' => 'Administrator']);
 
         $admin->givePermissionTo([
             'products.index',
             'products.edit',
             'products.show',
             'products.create',
-            'products.destroy'
+            'products.destroy',
+            'roles.index',
         ]);
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
 
         //Guest
-        $guest = Role::create(['name' => 'Guest']);
+        $guest = Role::create(['name' => 'Member']);
 
         $guest->givePermissionTo([
             'products.index',
@@ -44,8 +46,8 @@ class PermissionsTableSeeder extends Seeder
 
         //User Admin y Guest
         $user = User::find(1); //Charles Rodriguez
-        $user = User::find(2); //Aaron Rodriguez
-        $user->assignRole('Admin');
-        $user->assignRole('Guest');
+        $user->assignRole('Administrator');
+        $user = User::find(2); //Aarón Rodriguez
+        $user->assignRole('Member');
     }
 }

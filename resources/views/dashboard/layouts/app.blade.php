@@ -224,18 +224,28 @@
             </div>
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li class="{{ ($module == 'Home') ? 'active' : '' }}">
+                    <a href="#!">
+                        <i class="icon-home"></i>
+                        {{ __('Home') }}
+                    </a>
+                </li>
+                @hasrole('Administrator')
+                    <li>
+                        <a href="#configuracionDropdown" aria-expanded="{{ ($dropDown == 'Configuration') ? 'true' : 'false' }}" data-toggle="collapse">
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            {{ __('Configuration') }}
+                        </a>
+                        <ul id="configuracionDropdown" class="collapse list-unstyled {{ ($dropDown == 'Configuration') ? 'show' : '' }} ">
+                            <li class="{{ ($module == 'Roles') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Roles') }}</a></li>
+                            {{--<li><a href="#">Page</a></li>
+                            <li><a href="#">{{ url()->current() }}</a></li>--}}
+                        </ul>
+                    </li>
+                @endhasrole
                 <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                            class="icon-interface-windows"></i>Example dropdown </a>
-                    <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                    </ul>
-                </li>
                 <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
             </ul>
             <span class="heading">Extras</span>
@@ -249,7 +259,7 @@
         <div class="content-inner">
             @yield('content')
             <!-- Page Footer-->
-            <footer class="main-footer">
+            <footer class="main-footer p-0 p-sm-2">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
