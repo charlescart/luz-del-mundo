@@ -33,6 +33,7 @@ Route::group(['middleware' => ['lang']], function () {
     /*Fin de Routes de Products*/
 
     Route::resource('roles', 'RoleController');
+    Route::post('getUsersWithRoles', 'RoleController@getUsersWithRoles')->name('role.getUsersWithRoles');
 
     Route::get('/', function () {
         return view('welcome');

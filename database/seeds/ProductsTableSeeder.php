@@ -17,6 +17,8 @@ class ProductsTableSeeder extends Seeder
             ['name' => 'Oriana Rodriguez', 'email' => 'oriana@gmail.com'],
             ['name' => 'Oriannys Rodriguez', 'email' => 'oriannys@gmail.com'],
             ['name' => 'Gonzalo Zavala', 'email' => 'gonzalo@gmail.com'],
+            ['name' => 'Administrador Rodriguez', 'email' => 'admin@gmail.com'],
+            ['name' => 'Pastor Rodriguez', 'email' => 'pastor@gmail.com'],
         ];
 
         foreach ($data as $people) {

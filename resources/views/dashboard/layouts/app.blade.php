@@ -215,7 +215,7 @@
         <!-- Side Navbar -->
         <nav class="side-navbar">
             <!-- Sidebar Header-->
-            <div class="sidebar-header d-flex align-items-center">
+            <div class="sidebar-header d-flex align-items-center justify-content-center">
                 <div class="avatar"><img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="{{ Auth::user()->name }}" class="img-fluid rounded-circle"></div>
                 <div class="title">
                     <h1 class="h4">{{Auth::user()->name}}</h1>

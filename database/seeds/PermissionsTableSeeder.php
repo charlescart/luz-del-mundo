@@ -37,17 +37,17 @@ class PermissionsTableSeeder extends Seeder
         //$admin->givePermissionTo(Permission::all());
 
         //Guest
-        $guest = Role::create(['name' => 'Member']);
+        $guest = Role::create(['name' => 'shepherd']);
 
         $guest->givePermissionTo([
             'products.index',
             'products.show'
         ]);
 
-        //User Admin y Guest
-        $user = User::find(1); //Charles Rodriguez
+        //User Admin y Shepherd
+        $user = User::find(6); //Administrator Rodriguez
         $user->assignRole('Administrator');
-        $user = User::find(2); //Aarón Rodriguez
-        $user->assignRole('Member');
+        $user = User::find(7); //Pastor Rodriguez
+        $user->assignRole('shepherd');
     }
 }

@@ -268,6 +268,83 @@ function commonFunctions() {
             });
             /*Fin de remove/keep label on blur*/
             console.info('Config. input material');
+        },
+        /* *
+         * Fincionalidades comunes del dashboard.
+         * */
+        this.common_dashboard = function () {
+            /* Search Box */
+            $('#search').on('click', function (e) {
+                e.preventDefault();
+                $('.search-box').fadeIn();
+            });
+            $('.dismiss').on('click', function () {
+                $('.search-box').fadeOut();
+            });
+            /* Fin de search Box */
+
+            /* Adding fade effect to dropdowns */
+            $('.dropdown').on('show.bs.dropdown', function () {
+                $(this).find('.dropdown-menu').first().stop(true, true).fadeIn();
+            });
+            $('.dropdown').on('hide.bs.dropdown', function () {
+                $(this).find('.dropdown-menu').first().stop(true, true).fadeOut();
+            });
+            /* Fin de adding fade effect to dropdowns */
+
+            /* Sidebar Functionality */
+            $('#toggle-btn').on('click', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+
+                $('.side-navbar').toggleClass('shrinked');
+                $('.content-inner').toggleClass('active');
+                $(document).trigger('sidebarChanged');
+
+                if ($(window).outerWidth() > 1183) {
+                    if ($('#toggle-btn').hasClass('active')) {
+                        $('.navbar-header .brand-small').hide();
+                        $('.navbar-header .brand-big').show();
+                    } else {
+                        $('.navbar-header .brand-small').show();
+                        $('.navbar-header .brand-big').hide();
+                    }
+                }
+
+                if ($(window).outerWidth() < 1183) {
+                    $('.navbar-header .brand-small').show();
+                }
+            });
+            /* Fin de sidebar Functionality */
+
+            /* Footer */
+            var contentInner = $('.content-inner');
+
+            $(document).on('sidebarChanged', function () {
+                adjustFooter();
+            });
+
+            $(window).on('resize', function () {
+                adjustFooter();
+            })
+
+            function adjustFooter() {
+                var footerBlockHeight = $('.main-footer').outerHeight();
+                contentInner.css('padding-bottom', footerBlockHeight + 'px');
+            }
+            /* Fin de Footer */
+
+            /* Tooltips init */
+            $('[data-toggle="tooltip"]').tooltip()
+            /* Fin de tooltips init */
+
+            /* External links to new window */
+            $('.external').on('click', function (e) {
+
+                e.preventDefault();
+                window.open($(this).attr("href"));
+            });
+            /* Fin de external links to new window */
         }
     this.common_events = function () {
 

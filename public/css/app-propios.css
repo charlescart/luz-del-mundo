@@ -239,13 +239,9 @@ input.input-material.is-invalid ~ label {
 .form-material .btn-outline-primary:not(:disabled):not(.disabled):active,
 .form-material .show > .btn-outline-primary.dropdown-toggle{ background-color: #132fb3; border-color: #132fb3; -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0);}
 .form-material .btn-outline-primary.focus, .form-material .btn-outline-primary:focus{ -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.04); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); }
-/* .form-material .outline-primary:not(:disabled):not(.disabled):active:focus{ -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); } */
-.background-login {
-    background: url(../img/front-end/login-1.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
+.dropdown-menu { border-radius: 0; }
+
+
+/* DataTables */
+table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected { color: #132fb3; }
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected { background-color: #e8eaec; }
