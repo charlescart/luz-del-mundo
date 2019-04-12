@@ -115,5 +115,7 @@ return [
 	'attributes' => [
 		'username' => 'usuario',
 		'password' => 'contraseña',
+		'name' => 'nombre',
+		'guard_name' => 'nombre de guarda',
 	],
 ];

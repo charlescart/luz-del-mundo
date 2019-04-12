@@ -27,4 +27,5 @@ return [
     'modify' => 'Modify',
     'reply' => 'Reply',
     'comment' => '{1} :num Comment|[2.*] :num Comments',
+    'add_permission' => 'Add permission',
 ];

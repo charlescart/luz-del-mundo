@@ -15,33 +15,33 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         //Permission list
-        Permission::create(['name' => 'products.index']);
-        Permission::create(['name' => 'products.edit']);
-        Permission::create(['name' => 'products.show']);
-        Permission::create(['name' => 'products.create']);
-        Permission::create(['name' => 'products.destroy']);
         Permission::create(['name' => 'roles.index']);
+        Permission::create(['name' => 'roles.create']);
+        Permission::create(['name' => 'roles.show']);
+        Permission::create(['name' => 'roles.edit']);
+        Permission::create(['name' => 'roles.destroy']);
+
+        factory(Role::class, 100)->create();
 
         //Admin
         $admin = Role::create(['name' => 'Administrator']);
 
         $admin->givePermissionTo([
-            'products.index',
-            'products.edit',
-            'products.show',
-            'products.create',
-            'products.destroy',
             'roles.index',
+            'roles.create',
+            'roles.show',
+            'roles.edit',
+            'roles.destroy',
         ]);
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
 
         //Guest
-        $guest = Role::create(['name' => 'shepherd']);
+        $guest = Role::create(['name' => 'Shepherd']);
 
         $guest->givePermissionTo([
-            'products.index',
-            'products.show'
+            'roles.index',
+            'roles.show'
         ]);
 
         //User Admin y Shepherd
@@ -49,5 +49,7 @@ class PermissionsTableSeeder extends Seeder
         $user->assignRole('Administrator');
         $user = User::find(7); //Pastor Rodriguez
         $user->assignRole('shepherd');
+
+
     }
 }

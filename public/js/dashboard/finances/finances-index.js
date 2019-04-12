@@ -2,17 +2,18 @@
 * Ing.Charles Rodriguez
 */
 
-function rolesIndex(commonFunctions) {
-    var selft = this, select_table_roles, table_permissions;
+function financesIndex(commonFunctions) {
+    var selft = this, select_table_finance;
     commonFunctions.constructor();
     this.constructor = function () {
         this.component_init();
         commonFunctions.common_dashboard();
     },
         this.component_init = function () {
+            $('[data-toggle="tooltip"]').tooltip(); /*Inicializando los tooltips*/
 
-            /* DataTable Roles */
-            let table_roles = $('#table_roles').DataTable({
+            /* DataTable Finances */
+            let table_finance = $('#table_finance').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "responsive": {
@@ -20,7 +21,7 @@ function rolesIndex(commonFunctions) {
                         "display": $.fn.dataTable.Responsive.display.modal({
                             "header": function (row) {
                                 let data = row.data();
-                                return data.name;
+                                return data.amount;
                             }
                         }),
                         "renderer": $.fn.dataTable.Responsive.renderer.tableAll({
@@ -29,7 +30,7 @@ function rolesIndex(commonFunctions) {
                     }
                 },
                 "sPaginationType": "full_numbers",
-                'autoWidth': false,
+                'autoWidth': true,
                 'select': true,
                 'language': datatables_language,
                 'bLengthChange': false,
@@ -39,10 +40,10 @@ function rolesIndex(commonFunctions) {
                 'ajax': {
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     beforeSend: function () {
-                        if ($('#table_roles_filter [type="search"]').val() == '')
+                        if ($('#table_finance_filter [type="search"]').val() == '')
                             commonFunctions.lock();
                     },
-                    url: base_url + '/getUsersWithRoles',
+                    url: base_url + '/getFinancesForUser',
                     type: 'POST',
                     complete: function () {
                         commonFunctions.unlock();
@@ -52,20 +53,24 @@ function rolesIndex(commonFunctions) {
                     'bSortable': false,
                     'aTargets': '_all'
                 }, {responsivePriority: 1, targets: [0, 1, 4]},
-                    {responsivePriority: 2, targets: [2]}],
+                    {responsivePriority: 2, targets: [1]},
+                    {responsivePriority: 3, targets: [6]}],
                 'columns': [
                     {'data': 'id', 'className': 'font-weight-bold align-middle', 'width': '15px', 'defaultContent': ''},
-                    {'data': 'name', 'className': 'align-middle', 'defaultContent': ''},
-                    {'data': 'created_at', 'className': 'align-middle', 'width': '100px', 'defaultContent': ''},
-                    {'data': 'guard_name', 'className': 'align-middle', 'width': '10px', 'defaultContent': ''},
+                    {'data': 'amount', 'className': 'align-middle text-nowrap', 'width': '20px', 'defaultContent': ''},
+                    {'data': 'tithe', 'className': 'align-middle', 'width': '10px', 'defaultContent': ''},
+                    {'data': 'debt', 'className': 'align-middle text-nowrap', 'width': '20px', 'defaultContent': ''},
+                    {'data': 'type', 'className': 'align-middle','width': '20px', 'defaultContent': ''},
+                    {'data': 'created_at', 'className': 'align-middle text-center text-nowrap', 'width': '75px', 'defaultContent': ''},
+                    {'data': 'description', 'className': 'align-middle text-justify', 'defaultContent': ''},
                     {'data': 'action', 'className': 'text-right align-middle', 'width': '15px', 'defaultContent': ''},
                 ]
             });
-            table_roles
+            table_finance
                 .on('select', function (e, dt, type, indexes) {
                     var rowData = table_roles.rows(indexes).data().toArray();
-                    select_table_roles = rowData[0];
-                    console.table(select_table_roles);
+                    select_table_finance = rowData[0];
+                    console.table(select_table_finance);
                 });
             /* Fin de DataTable Roles */
 
@@ -101,7 +106,7 @@ function rolesIndex(commonFunctions) {
                 })
                     .done(function (data) {
                         if (data.success) {
-                            table_roles.ajax.reload();
+                            table_finance.ajax.reload();
                             form[0].reset();
                             modal.modal('hide');
                             msg(data.msg, time_toast);
@@ -248,6 +253,6 @@ function rolesIndex(commonFunctions) {
 }
 
 $(function () {
-    var roles_index = new rolesIndex(new commonFunctions());
-    roles_index.constructor();
+    var finances_index = new financesIndex(new commonFunctions());
+    finances_index.constructor();
 });

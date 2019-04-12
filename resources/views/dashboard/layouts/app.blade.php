@@ -15,10 +15,6 @@
     @include('mensajes')
     @stack('scripts')
 
-    <!-- Fonts -->
-    {{--  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">  --}}
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
@@ -243,7 +239,21 @@
                         </ul>
                     </li>
                 @endhasrole
-                <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
+                <li>
+                    <a href="#mysFinancesDropdown" aria-expanded="{{ ($dropDown == 'Finances') ? 'true' : 'false' }}" data-toggle="collapse">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        {{ __('Finances') }}
+                    </a>
+                    <ul id="mysFinancesDropdown" class="collapse list-unstyled {{ ($dropDown == 'Finances') ? 'show' : '' }} ">
+                        <li class="{{ ($module == 'Finances') ? 'active' : '' }}"><a href="{{ route('finances.index') }}">{{ __('Mys Finances') }}</a></li>
+                        <li class="{{ ($module == 'Tithe') ? 'active' : '' }}"><a href="{{ route('finances.index') }}">{{ __('Mys Tithes') }}</a></li>
+                    </ul>
+                </li>
+                {{--<li class="{{ ($module == 'Finances') ? 'active' : '' }}">
+                    <a href="{{ route('finances.index') }}">
+                        <i class="fa fa-bar-chart"></i> {{ __('Finances') }}
+                    </a>
+                </li>--}}
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>

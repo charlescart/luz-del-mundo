@@ -1,7 +1,6 @@
 @import "fonts-roboto.css";
 
 /* Ajustes generales de tipo de fuente */
-html, body, header, footer, head, a {font-family: 'Roboto', sans-serif; /*color:#fff !important;*/}
 body{ margin-top: 53px; }
 
 /* Config. de Particles plugin */
@@ -221,17 +220,8 @@ input.input-material ~ label.active i { display: none; }
 input.input-material.is-invalid ~ label {
   color: #dc3545;
 }
-
-.form-group-material {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.i-checks {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
+.form-group-material { position: relative; margin-bottom: 30px;}
+.i-checks { display: -webkit-box; display: -ms-flexbox; display: flex;}
 
 .form-material .btn-outline-primary{ color: #132fb3; border-color: #132fb3; border-radius: 25px;}
 .form-material .btn-outline-primary:hover{ background-color: #132fb3; border-color: #132fb3; color: white; }
@@ -245,3 +235,6 @@ input.input-material.is-invalid ~ label {
 /* DataTables */
 table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected { color: #132fb3; }
 table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected { background-color: #e8eaec; }
+div.dataTables_wrapper, div.dataTables_filter label { color: #868e96;}
+div.dataTables_filter input[type="search"] { border: none; border-bottom: 1px solid #132fb3;}
+div.dataTables_filter input[type="search"]:focus { -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0);}

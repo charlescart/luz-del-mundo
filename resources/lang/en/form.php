@@ -8,4 +8,5 @@
 return [
     'name' => 'Name',
     'description' => 'Description',
+    'guard name' => 'Guard Name',
 ];

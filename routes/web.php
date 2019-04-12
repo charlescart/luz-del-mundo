@@ -32,8 +32,16 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getProducts', 'ProductController@getProducts')->name('products.getProducts');
     /*Fin de Routes de Products*/
 
+    /*Routes de Roles*/
     Route::resource('roles', 'RoleController');
     Route::post('getUsersWithRoles', 'RoleController@getUsersWithRoles')->name('role.getUsersWithRoles');
+    Route::post('getPermissionsOfARol', 'RoleController@getPermissionsOfARol')->name('role.getPermissionsOfARol');
+    /*Fin de Routes de Roles*/
+
+    /*Routes de Finance*/
+    Route::resource('finances', 'FinanceController');
+    Route::post('getFinancesForUser', 'FinanceController@getFinancesForUser')->name('finances.getFinancesForUser');
+    /*Fin de Routes de Finance*/
 
     Route::get('/', function () {
         return view('welcome');

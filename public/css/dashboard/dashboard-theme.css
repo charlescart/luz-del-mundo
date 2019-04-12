@@ -812,7 +812,7 @@ nav.navbar .dropdown-menu {
   right: 0;
   min-width: 250px;
   left: auto;
-  margin-top: 15px;
+  margin-top: 9px;
   margin-bottom: 0;
   padding: 15px 0;
   max-width: 400px;
@@ -2868,7 +2868,7 @@ h6,
 }
 
 .display-4 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.1;
 }
@@ -3484,3 +3484,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination { justify-content: 
     div.dataTables_wrapper div.dataTables_paginate ul.pagination { justify-content: flex-end; }
 }
 
+/* Badge Modificados */
+.badge-dark {
+    background-color: #3F51B5;
+}

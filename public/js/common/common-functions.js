@@ -7,7 +7,7 @@
 function commonFunctions() {
 
     this.constructor = function () {
-        this.common_events();
+        // this.common_events();
         console.info('Funciones comunes cargadas!');
     },
         this.show_flash_message = function () {
@@ -20,10 +20,11 @@ function commonFunctions() {
                 case 422: /* Errores de validacion */
                     $.each(data.responseJSON.errors, function (name, msg) {
                         $('#' + form_id + ' [name="' + name + '"]').addClass('is-invalid');
-                        $('#' + form_id + ' [name="' + name + '"] + div').text(msg);
+                        $('#' + form_id + ' [name="' + name + '"]').siblings('div.invalid-feedback:first').text(msg[0]);
+                        console.log('#' + form_id + ' [name="' + name + '"] + div');
                     });
                     break;
-                case 403: /* Acceso no autorizado por Request */
+                case 403: /* Acceso no autorizado por Request o Roles*/
                     msg(-3, time_toast);
                     break;
                 case 401:
@@ -62,7 +63,7 @@ function commonFunctions() {
         this.lock = function () {
             $.blockUI({
                 message: preloader,
-                css: { 'z-index': 100002, backgroundColor: 'transparent', color: '#fff', opacity: '1', border: 'none' }
+                css: { 'z-index': 100020, backgroundColor: 'transparent', color: '#fff', opacity: '1', border: 'none' }
             });
         },
         this.unlock = function () {

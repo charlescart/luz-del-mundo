@@ -4,16 +4,16 @@
     window.mensaje_delete = '{!! trans('mensaje.delete') !!}';
     window.btn_delete = '{!! trans('btn.delete') !!}';
     window.btn_cancel = '{!! trans('btn.cancel') !!}';
-    window.preloader = '<svg viewBox="0 0 120 120" width="100px" height="100px"> <circle class="inner" cx="60" cy="60" r="32"/> <circle class="middle" cx="60" cy="60" r="38"/> <circle class="outer" cx="60" cy="60" r="44"/></svg><span style="display: block; color: #aacbb0; margin-left: 10px;">{!! trans('mensaje.preloader') !!}</span>';
+    window.preloader = '<svg viewBox="0 0 120 120" width="100px" height="100px"> <circle class="inner" cx="60" cy="60" r="32"/> <circle class="middle" cx="60" cy="60" r="38"/> <circle class="outer" cx="60" cy="60" r="44"/></svg><span class="text-nowrap" style="display: block; color: #aacbb0; margin-left: 0;">{!! trans('mensaje.preloader') !!}</span>';
     window.msg_flash = '{!! (session('msg')) ? session('msg') : 'false' !!}';
     window.msg_unauthenticated = '{!! trans('auth.unauthenticated') !!}';
 
     /* toast */
     window.question_color = '#d39e00';
-    window.error_color = '#c82333';
-    window.success_color = '#28a745';
+    window.error_color = '#333834';
+    window.success_color = '#333834';
     window.warning_color = '#ffc107';
-    window.time_toast = 6000;
+    window.time_toast = 8000;
     /* fin de toast */
 
     window.datatables_language = {
@@ -91,8 +91,8 @@
         btn[2] = '<a href="{!! URL::previous() !!}" class="btn btn-outline-dark btn-behind" '+btn_css+'>{!! trans('btn.behind') !!}</a>';
 
         if (num < 0)
-            iziToast.error({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: error_color});
+            iziToast.error({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: error_color, theme: 'dark'});
         else if (num > 0) /* del nro 1 en adelante */
-            iziToast.success({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: success_color});
+            iziToast.success({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: success_color, theme: 'dark'});
     }
 </script>
