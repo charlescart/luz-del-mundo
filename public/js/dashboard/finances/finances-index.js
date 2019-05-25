@@ -10,10 +10,16 @@ function financesIndex(commonFunctions) {
         commonFunctions.common_dashboard();
     },
         this.component_init = function () {
-            $('[data-toggle="tooltip"]').tooltip(); /*Inicializando los tooltips*/
+            /*Inicializando los tooltips*/
+            $('[data-toggle="tooltip"]').tooltip();
 
             /* DataTable Finances */
             let table_finance = $('#table_finance').DataTable({
+                "formatNumber": function ( toFormat ) {
+                    return toFormat.toString().replace(
+                        /\B(?=(\d{3})+(?!\d))/g, "'"
+                    );
+                },
                 "processing": true,
                 "serverSide": true,
                 "responsive": {
@@ -45,8 +51,9 @@ function financesIndex(commonFunctions) {
                     },
                     url: base_url + '/getFinancesForUser',
                     type: 'POST',
-                    complete: function () {
+                    complete: function (data) {
                         commonFunctions.unlock();
+                        console.log(data);
                     }
                 },
                 columnDefs: [{targets: [], visible: false}, {
@@ -68,9 +75,9 @@ function financesIndex(commonFunctions) {
             });
             table_finance
                 .on('select', function (e, dt, type, indexes) {
-                    var rowData = table_roles.rows(indexes).data().toArray();
+                    var rowData = table_finance.rows(indexes).data().toArray();
                     select_table_finance = rowData[0];
-                    console.table(select_table_finance);
+                    // console.table(select_table_finance);
                 });
             /* Fin de DataTable Roles */
 
@@ -79,36 +86,91 @@ function financesIndex(commonFunctions) {
             /* Fin de config. de input material*/
 
             /* Evento show de modal roles create */
-            $('#modal-roles-create').on('show.bs.modal', function (event) {
+            $('#modal-finances-create').on('show.bs.modal', function (event) {
                 let button = $(event.relatedTarget);
                 let form = button.data('form');
                 let title = button.data('title');
                 let modal = $(this);
                 modal.find('form').attr('id', form);
                 modal.find('.modal-title').text(title);
-                modal.find('.btn-roles-save').attr('form', form);
+                modal.find('.btn-finances-save').attr('form', form);
             });
             /* Fin de evento show de modal roles create */
 
+            /*Validaciones de clasificacion de finanzas*/
+            $("#finance_classification_id").on('change', function (event) {
+                let select = $(event.relatedTarget);
+                // console.log($("#finance_classification_id option:selected").data('fund'));
+
+                if($(this).val() == 3 || $(this).val() == 4) {
+                    if($(this).val() == 3) {
+                        $(".content-debit-to").addClass('d-block');
+                        $('input[name="debt"]').prop('disabled', true);
+                    } else {
+                        $(".content-debit-to").removeClass('d-block');
+                        $('input[name="debt"]').prop('disabled', true);
+                    }
+
+                    $('#tithe_not').prop("checked", true);
+                    $('#fifth_part_not').prop("checked", true);
+                } else {
+                    $(".content-debit-to").removeClass('d-block');
+                    $('#tithe_yes').prop("checked", true);
+                    $('#fifth_part_not').prop("checked", true);
+                    $('input[name="debt"]').prop('disabled', false);
+                }
+
+                if($(this).val() != 3)
+                    $('#debit_to').val(0);
+            });
+            /*Fin de validaciones de clasificacion de finanzas*/
+
+            /*Validacion de input radio tithe*/
+            $('input:radio[name="tithe"]').on('change', function(event) {
+                /*Si no diezma del ingreso, pues logicamente no pagará quinta parte*/
+                if($(this).val() == 0) {
+                    if($('input:radio[name=fifth_part]:checked').val() == 1) {
+                        $('#fifth_part_not').prop("checked", true);
+                        msg(100, time_toast);
+                    }
+                }
+            });
+            /*Fin de validacion de input radio tithe*/
+
+            /*Validacion de input radio fifth_part*/
+            $('input:radio[name="fifth_part"]').on('change', function(event){
+                /*Si pagará quinta parte pues debe decir que diezmará*/
+                if($(this).val() == 1) {
+                    if($('input:radio[name="tithe"]:checked').val() == 0) {
+                        $('#tithe_yes').prop("checked", true);
+                        msg(101, time_toast);
+                    }
+                }
+            });
+            /*Fin de validacion de input radio fifth_part*/
+
             /* Evento submit de form roles create */
-            $(document).on('submit', '#form-roles-create', function (event) {
+            $(document).on('submit', '#form-finances-create', function (event) {
                 event.preventDefault();
                 let form = $(this), form_id = this.id, modal = $(this).parents('.modal:first');
-                console.log(modal, modal.attr('id'));
+                commonFunctions.clean_error_messages($(this).serializeArray(), this);
                 $.ajax({
                     beforeSend: function () {
                         $('#' + modal.attr('id') + ' [type="submit"]').buttonLoader('start');
                         commonFunctions.lock();
                     },
-                    url: base_url + '/roles',
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    url: base_url + '/finances',
                     type: 'POST',
                     data: form.serialize()
                 })
                     .done(function (data) {
                         if (data.success) {
                             table_finance.ajax.reload();
-                            form[0].reset();
                             modal.modal('hide');
+                            form[0].reset();
+                            $(".content-debit-to").removeClass('d-block');
+                            $('input[name="debt"]').prop('disabled', false);
                             msg(data.msg, time_toast);
                         } else
                             msg(data.msg);
@@ -151,9 +213,9 @@ function financesIndex(commonFunctions) {
             });
             /*Fin de evento click de btn edit de fila de tabla roles*/
 
-            $('#table_roles').on('click', '.btn-roles-destroy', function (event) {
+            $('#table_finance').on('click', '.btn-finance-destroy', function (event) {
                 let btn = this;
-                let id = select_table_roles.id;
+                let id = select_table_finance.id;
                 iziToast.question({
                     timeout: false,
                     close: false,
@@ -173,7 +235,7 @@ function financesIndex(commonFunctions) {
                                     $(btn).buttonLoader('start');
                                 },
                                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                url: base_url + '/roles/' + id,
+                                url: base_url + '/finances/' + id,
                                 type: 'DELETE',
                                 data: {'id': id}
                             })
@@ -186,7 +248,7 @@ function financesIndex(commonFunctions) {
                                     $(btn).buttonLoader('stop');
                                     commonFunctions.unlock();
                                     if (data.success)
-                                        table_roles.ajax.reload();
+                                        table_finance.ajax.reload();
                                     msg(data.msg);
                                 });
                         }, true],

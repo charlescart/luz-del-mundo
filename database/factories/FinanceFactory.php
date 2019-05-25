@@ -13,6 +13,9 @@ $factory->define(App\Finance::class, function (Faker $faker) {
         'currency_id' => function(){
             return random_int(1, 2);
         },
+        'debit_to' => function(){
+            return random_int(1, 2);
+        },
         'amount' => function() {
             return rand(10, 100);
         },

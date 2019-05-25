@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddingForeingkeyFinances extends Migration
+class AddingColumnDebitToTableFinances extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddingForeingkeyFinances extends Migration
     public function up()
     {
         Schema::table('finances', function (Blueprint $table) {
-            $table->unsignedInteger('currency_id')->after('finance_classification_id');
-            $table->foreign('currency_id')->references('id')->on('currencies');
-            $table->engine = 'InnoDB';
+            $table->unsignedInteger('debit_to')->after('currency_id');
         });
     }
 
@@ -28,10 +26,9 @@ class AddingForeingkeyFinances extends Migration
     public function down()
     {
         Schema::table('finances', function (Blueprint $table) {
-            Schema::disableForeignKeyConstraints();
-            if (Schema::hasColumn('finances', 'currency_id')) {
-                $table->dropForeign(['currency_id']);
-                $table->dropColumn('currency_id');
+            //
+            if (Schema::hasColumn('finances', 'debit_to')) {
+                $table->dropColumn('debit_to');
             }
         });
     }

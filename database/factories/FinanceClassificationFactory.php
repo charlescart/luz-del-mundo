@@ -8,5 +8,6 @@ $factory->define(App\FinanceClassification::class, function (Faker $faker) {
         'description' => $faker->paragraph,
         'color' => $faker->hexColor,
         'class' => $faker->firstNameMale,
+        'fund' => 1,
     ];
 });

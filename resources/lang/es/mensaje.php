@@ -12,10 +12,15 @@ return [
     -2 => 'Acceso denegado, no estás autenticado!',
     -3 => 'Acceso denegado, no está autorizado!',
     -4 => 'No encontrado!',
+    -5 => 'El fondo del que se debitará no es un fondo de débito!',
 
     /* Success */
     1 => 'Operación realizada con éxito!',
     2 => 'Comentario publicado con éxito!',
+
+    /* Observaciones */
+    100 => 'Si no diezmará, no debe pagar quinta parte',
+    101 => 'Si pagará quinta parte, debe decir que diezmará',
 
     /* texts mensajes, questions etc */
     'delete' => '¿Desea eliminar este ítem?',

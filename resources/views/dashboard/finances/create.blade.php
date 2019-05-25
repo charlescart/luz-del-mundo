@@ -8,11 +8,11 @@
         </button>
       </div>
       <div class="modal-body">
-        @include('dashboard.roles.partials.form-role')
+        @include('dashboard.finances.partials.form-finance')
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-0 btn-sm" data-dismiss="modal">{{ __('btn.cancel') }}</button>
-        <button type="submit" class="btn btn-outline-primary rounded-0 btn-sm btn-roles-save has-spinner" data-load-text="{{ __('btn.saving') }}">{{ __('btn.save') }}</button>
+        <button type="submit" class="btn btn-outline-primary rounded-0 btn-sm btn-finances-save has-spinner" data-load-text="{{ __('btn.saving') }}">{{ __('btn.save') }}</button>
       </div>
     </div>
   </div>

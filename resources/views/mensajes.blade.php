@@ -79,10 +79,15 @@
         msg[-2] = '{!! trans('mensaje.-2') !!}';
         msg[-3] = '{!! trans('mensaje.-3') !!}';
         msg[-4] = '{!! trans('mensaje.-4') !!}';
+        msg[-5] = '{!! trans('mensaje.-5') !!}';
 
         /* SUCCESS */
         msg[1] = '{!! trans('mensaje.1') !!}';
         msg[2] = '{!! trans('mensaje.2') !!}';
+
+        /* OBSERVACIONES */
+        msg[100] = '{!! trans('mensaje.100') !!}';
+        msg[101] = '{!! trans('mensaje.101') !!}';
 
         /* BOTONES */
         let btn_css = 'style="font-size: .9em; margin-top: -3px; padding: 0 5px;"';
@@ -92,7 +97,9 @@
 
         if (num < 0)
             iziToast.error({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: error_color, theme: 'dark'});
-        else if (num > 0) /* del nro 1 en adelante */
+        else if (num > 0 && num < 100) /* del nro 1 en adelante */
             iziToast.success({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: success_color, theme: 'dark'});
+        else if (num >= 100)
+            iziToast.info({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: success_color, theme: 'dark'});
     }
 </script>

@@ -10,7 +10,7 @@ class FinanceClassification extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'description', 'color'
+        'name', 'description', 'color', 'class', 'fund',
     ];
 
     protected $dates = ['deleted_at'];

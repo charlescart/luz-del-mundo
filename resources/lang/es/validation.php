@@ -117,5 +117,13 @@ return [
 		'password' => 'contraseña',
 		'name' => 'nombre',
 		'guard_name' => 'nombre de guarda',
+        'finance_classification' => 'clasificacion financiera',
+        'debit_to' => 'debitar a',
+        'currency' => 'moneda',
+        'amount' => 'monto',
+        'debt' => 'deuda',
+        'description' => 'descripcion',
+        'tithe' => 'diezmo',
+        'fifth_part' => 'quinta parte',
 	],
 ];

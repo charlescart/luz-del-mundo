@@ -13,31 +13,40 @@
                 <div class="card-header p-2">
                     <i class="fa fa-globe mr-2" aria-hidden="true"></i>
                     <span class="align-middle">{{ __('Finances') }}</span>
-                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-finances-create" data-form="form-finances-create" data-title="{{ __('Create a :text', ['text' => __('Finances')]) }}">{{ __('btn.create') }}</a>
+                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-finances-create" data-form="form-finances-create" data-title="{{ __('Create a :text', ['text' => __('Amount')]) }}">{{ __('btn.create') }}</a>
                 </div>
 
-                <div class="card-body p-0 mt-3">
-                    <div class="row bg-danger">
-                        <div class="col-6 col-md bg-gray">
-                            {{__('Tithe')}}:
-                            @if($tithe)
-                                @foreach($tithe as $item)
-                                    <span class="text-nowrap {{$item['color']}}">{{$item['amount']}} {{$item['code']}}</span>
-                                    {{(!$loop->last) ? '/' : ''}}
-                                @endforeach
-                            @endif
-                        </div>
-                        <div class="col-6 col-md bg-info">
-                            {{__('Capital')}}:
-                        </div>
-                        <div class="col-6 col-md bg-orange">
-                            {{__('Debt')}}:
-                        </div>
-                        <div class="col-6 col-md bg-danger">
-                            {{__('5% Income')}}:
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex bd-highlight w-100">
+                                <div class="col-12 col-md bd-highlight">
+                                    <p class="text-uppercase text-center mb-1 text-xsmall">{{__('Tithe')}}</p>
+                                    @if($tithe)
+                                        @foreach($tithe as $item)
+                                            <p class="text-center text-nowrap mb-1">{{__($item['color'])}} {{$item['amount']}} {{$item['code']}}</p>
+                                        @endforeach
+                                    @endif
+                                </div>
+                                @if($funds)
+                                    @foreach($funds as $key => $fund)
+                                        <div class="col-12 col-md align-self-stretch p-0 bd-highlight">
+                                            <p class="text-uppercase text-center mb-1 text-xsmall">{{$key}}</p>
+                                            @foreach($fund as $item)
+                                                <p class="text-nowrap text-center mb-0" style="color: {{($item['currency'] == 'USD') ? '#0e982e' : '#ca9907'}} !important;">{{$item['currency']}}</p>
+                                                <p class="text-center text-nowrap mb-1">
+                                                    <span class="text-success"><i class="fa fa-arrow-down" aria-hidden="true"></i> {{$item['have']}}</span>
+                                                    <span class="text-danger"><i class="fa fa-arrow-up" aria-hidden="true"></i> {{$item['debit']}}</span>
+                                                    <span style="color: #055a19 !important;"><i class="fa fa-money" aria-hidden="true"></i> {{$item['capital']}}</span>
+                                                </p>
+                                            @endforeach
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
                     </div>
-                    <div class="col p-1 p-sm-2">
+                    <div class="col p-1 p-sm-2 border-top">
                         <table id="table_finance" class="table dt-responsive table-striped  table-sm" width="100%">
                             <thead class="thead-light">
                             <tr class="text-center">

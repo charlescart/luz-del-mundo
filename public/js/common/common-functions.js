@@ -21,7 +21,6 @@ function commonFunctions() {
                     $.each(data.responseJSON.errors, function (name, msg) {
                         $('#' + form_id + ' [name="' + name + '"]').addClass('is-invalid');
                         $('#' + form_id + ' [name="' + name + '"]').siblings('div.invalid-feedback:first').text(msg[0]);
-                        console.log('#' + form_id + ' [name="' + name + '"] + div');
                     });
                     break;
                 case 403: /* Acceso no autorizado por Request o Roles*/
@@ -55,7 +54,7 @@ function commonFunctions() {
             }
         },
         this.clean_error_messages = function (fields, selft) {
-            /* var "fields" son inputs serializados del form, var "selft" el elemento en si, es un "this" */
+            /* var "fields" son inputs serializados del form "$(this).serializeArray()", var "selft" el elemento en si, es un "this" */
             $.each(fields, function (i, field) {
                 $('#' + selft.id + ' [name="' + field.name + '"]').removeClass('is-invalid');
             });

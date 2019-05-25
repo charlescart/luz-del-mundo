@@ -37,5 +37,13 @@
     "Yes": "Si",
     "Not": "No",
     "Description": "Descripción",
-    "5% Income": "Ingreso 5%"
+    "5% Income": "Ingreso 5%",
+    "Finance Classification": "Clasificación de Finanzas",
+    "Currency": "Moneda",
+    "Decimate this income?": "¿Diezmará de este ingreso?",
+    "Pay tithes with a fifth?": "¿Pagar diezmos con quinta parte?",
+    "Debit to": "Debitar a",
+    "Select": "Seleccione",
+    "Debit": "Debe",
+    "Solvent": "Solvente"
 }

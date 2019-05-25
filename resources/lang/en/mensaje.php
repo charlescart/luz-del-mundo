@@ -12,10 +12,15 @@ return [
     -2 => 'Access denied, you are not authenticated!',
     -3 => 'Access denied, not authorized!',
     -4 => 'Not found!',
+    -5 => 'The fund to be debited from is not a debit fund!',
 
     /* Success */
     1 => 'Operation carried out successfully!',
     2 => 'Comment posted successfully!',
+
+    /* Observaciones */
+    100 => 'If you do not decimate, you will not pay a fifth',
+    101 => 'If he will pay a fifth, he must say that he will tithe',
 
     /* texts mensajes, questions etc */
     'delete' => 'Do you want to delete this item?',
