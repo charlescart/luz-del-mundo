@@ -58,9 +58,40 @@ function rolesEdit(commonFunctions) {
                     .on('select', function (e, dt, type, indexes) {
                         var rowData = table_permissions.rows(indexes).data().toArray();
                         select_table_permissions = rowData[0];
-                        console.table(select_table_permissions);
                     });
             /* Fin de funcion que inicializa DataTables de permisos de un determinado rol */
+
+            /* Evento submit de form add permission */
+            $(document).on('submit', '#form-add-permission', function (event) {
+                event.preventDefault();
+                let form = $(this), form_id = this.id, modal = $(this).parents('.modal:first');
+                $.ajax({
+                    beforeSend: function () {
+                        $('#' + modal.attr('id') + ' [type="submit"]').buttonLoader('start');
+                        commonFunctions.lock();
+                    },
+                    url: base_url + '/addPermissionToARole',
+                    type: 'POST',
+                    data: form.serialize()
+                })
+                    .done(function (data) {
+                        if (data.success) {
+                            table_permissions.ajax.reload();
+                            form[0].reset();
+                            modal.modal('hide');
+                            msg(data.msg, time_toast);
+                        } else
+                            msg(data.msg);
+                    })
+                    .fail(function (data) {
+                        commonFunctions.apply_error_menssages(data, form_id);
+                    })
+                    .always(function (data) {
+                        $('#' + modal.attr('id') + ' [type="submit"]').buttonLoader('stop');
+                        commonFunctions.unlock();
+                    });
+            });
+            /*Fin de submit de form add permission */
 
             // $('.toolbar').prepend('<button type="button" class="btn btn-outline-primary btn-sm float-md-left mt-md-2 rounded-0">Add permissions</button>');
         }

@@ -131,7 +131,7 @@ function rolesIndex(commonFunctions) {
             /* Evento hidden de modal roles show */
             $('#modal-roles-show').on('hidden.bs.modal', function (e) {
                 table_permissions.destroy();
-            })
+            });
             /* Fin de evento hidden de modal roles show */
 
             /* Evento doble click de dataTables */
@@ -139,6 +139,12 @@ function rolesIndex(commonFunctions) {
                 $('#modal-roles-show').modal('show');
             });
             /* Fin de evento doble click de dataTables */
+
+            /*Evento click de btn show de fila de tabla roles*/
+            $('#table_roles').on('click', 'tr .btn-roles-show', function (event) {
+                $('#modal-roles-show').modal('show');
+            });
+            /*Fin de evento click de btn show de fila de tabla roles*/
 
             /*Evento click de btn edit de fila de tabla roles*/
             $('#table_roles').on('click', 'tr .btn-roles-edit', function (event) {

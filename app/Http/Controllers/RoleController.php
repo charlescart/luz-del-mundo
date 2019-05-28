@@ -27,6 +27,7 @@ class RoleController extends Controller
         $this->middleware('permission:roles.show')->only(['show', 'getPermissionsOfARol']);
         $this->middleware('permission:roles.edit')->only(['edit', 'update']);
         $this->middleware('permission:roles.destroy')->only('destroy');
+        $this->middleware('permission:roles.assing-roles')->only('assingARol');
     }
 
     /**
@@ -185,5 +186,32 @@ class RoleController extends Controller
                 return $permissions->created_at->diffForHumans();
             })
             ->make(true);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function assingARol()
+    {
+        $data = [
+            'dropDown' => 'Configuration',
+            'module' => 'assingRoles',
+        ];
+        return view('dashboard.roles.assing_role', $data);
+    }
+
+
+    public function addPermissionToARole(Request $request)
+    {
+        $role = Role::findByName($request->role_name);
+        $permission = Permission::firstOrCreate($request->only('name'));
+
+        if(!$role->hasPermissionTo($request->name)) {
+            $result = $role->givePermissionTo($request->name);
+            return response()->json(['success' => true, 'msg' => 1]);
+        } else
+            return response()->json(['success' => true, 'msg' => 102]);
     }
 }

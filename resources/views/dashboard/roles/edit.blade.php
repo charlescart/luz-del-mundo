@@ -16,7 +16,7 @@
                     @if(Auth::user()->hasPermissionTo('roles.edit'))
                         <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right"
                            style="min-width: 4rem;" data-toggle="modal"
-                           data-target="#modal-roles-create">{{ __('btn.add_permission') }}</a>
+                           data-target="#modal-add-permission">{{ __('btn.add_permission') }}</a>
                     @endif
                 </div>
 
@@ -71,6 +71,8 @@
             </div>
         </div>
     </div>
+
+    @includeWhen(Auth::user()->hasPermissionTo('roles.edit'), 'dashboard.roles.add-permission')
 @endsection
 
 

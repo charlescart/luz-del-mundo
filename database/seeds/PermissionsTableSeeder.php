@@ -20,6 +20,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'roles.show']);
         Permission::create(['name' => 'roles.edit']);
         Permission::create(['name' => 'roles.destroy']);
+        Permission::create(['name' => 'roles.assing-roles']);
 
         factory(Role::class, 100)->create();
 
@@ -32,6 +33,7 @@ class PermissionsTableSeeder extends Seeder
             'roles.show',
             'roles.edit',
             'roles.destroy',
+            'roles.assing-roles',
         ]);
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
@@ -43,6 +45,9 @@ class PermissionsTableSeeder extends Seeder
             'roles.index',
             'roles.show'
         ]);
+
+        /*Rol de quien maneja el ingreso de diezmo para control del pastor*/
+        $guest = Role::create(['name' => 'TitheWriter']);
 
         //User Admin y Shepherd
         $user = User::find(6); //Administrator Rodriguez

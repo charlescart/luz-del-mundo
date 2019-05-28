@@ -21,6 +21,7 @@ return [
     /* Observaciones */
     100 => 'Si no diezmará, no debe pagar quinta parte',
     101 => 'Si pagará quinta parte, debe decir que diezmará',
+    102 => 'Ya el permiso especificado pertenece a este rol',
 
     /* texts mensajes, questions etc */
     'delete' => '¿Desea eliminar este ítem?',

@@ -21,6 +21,7 @@ return [
     /* Observaciones */
     100 => 'If you do not decimate, you will not pay a fifth',
     101 => 'If he will pay a fifth, he must say that he will tithe',
+    102 => 'The permit is already in this role',
 
     /* texts mensajes, questions etc */
     'delete' => 'Do you want to delete this item?',

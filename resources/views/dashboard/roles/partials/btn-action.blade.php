@@ -5,8 +5,8 @@
     </button>
     <div class="dropdown-menu">
         <!-- Dropdown menu links -->
-            <a class="dropdown-item btn-finance-show" href="#!" style="color: #000;" data-toggle="modal" data-target="#modal-finance-show">{{ __('btn.see') }}</a>
-            <a class="dropdown-item btn-finance-edit" href="#!" style="color: #000;">{{ __('btn.edit') }}</a>
-            <a class="dropdown-item btn-finance-destroy" href="#!" style="color: #000;">{{ __('btn.delete') }}</a>
+            <a class="dropdown-item btn-roles-show" href="#!" style="color: #000;" data-toggle="modal" data-target="#modal-finance-show">{{ __('btn.see') }}</a>
+            <a class="dropdown-item btn-roles-edit" href="#!" style="color: #000;">{{ __('btn.edit') }}</a>
+            <a class="dropdown-item btn-roles-destroy" href="#!" style="color: #000;">{{ __('btn.delete') }}</a>
     </div>
 </div>

@@ -234,6 +234,7 @@
                         </a>
                         <ul id="configuracionDropdown" class="collapse list-unstyled {{ ($dropDown == 'Configuration') ? 'show' : '' }} ">
                             <li class="{{ ($module == 'Roles') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Roles') }}</a></li>
+                            <li class="{{ ($module == 'assingRole') ? 'active' : '' }}"><a href="{{ route('roles.assing-roles') }}">{{ __('Assing Roles') }}</a></li>
                             {{--<li><a href="#">Page</a></li>
                             <li><a href="#">{{ url()->current() }}</a></li>--}}
                         </ul>

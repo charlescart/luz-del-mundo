@@ -88,6 +88,7 @@
         /* OBSERVACIONES */
         msg[100] = '{!! trans('mensaje.100') !!}';
         msg[101] = '{!! trans('mensaje.101') !!}';
+        msg[102] = '{!! trans('mensaje.102') !!}';
 
         /* BOTONES */
         let btn_css = 'style="font-size: .9em; margin-top: -3px; padding: 0 5px;"';
