@@ -21,6 +21,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'roles.edit']);
         Permission::create(['name' => 'roles.destroy']);
         Permission::create(['name' => 'roles.assing-roles']);
+        Permission::create(['name' => 'roles.invite-role']);
 
         factory(Role::class, 100)->create();
 
@@ -34,6 +35,7 @@ class PermissionsTableSeeder extends Seeder
             'roles.edit',
             'roles.destroy',
             'roles.assing-roles',
+            'roles.invite-role',
         ]);
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());

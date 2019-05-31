@@ -2,12 +2,11 @@
 * Ing.Charles Rodriguez
 */
 
-function rolesEdit(commonFunctions) {
-    var selft = this;
+function assingRoles(commonFunctions) {
+    var selft = this, table_users, select_table_users;
     commonFunctions.constructor();
     this.constructor = function () {
         this.component_init();
-        /* Inicia las funcionalidades comunes del dashboard, es importente */
         commonFunctions.common_dashboard();
     },
         this.component_init = function () {
@@ -16,11 +15,23 @@ function rolesEdit(commonFunctions) {
             commonFunctions.config_input_material();
             /* Fin de config. de input material*/
 
-            /* Funcion que inicializa DataTables de permisos de un determinado rol */
-                table_permissions = $('#table_permissions').DataTable({
+            /* Funcion que inicializa DataTables de usuarios */
+                table_users = $('#table_users').DataTable({
                     "processing": false,
                     "serverSide": true,
-                    "responsive": true,
+                    "responsive": {
+                        "details": {
+                            "display": $.fn.dataTable.Responsive.display.modal({
+                                "header": function (row) {
+                                    let data = row.data();
+                                    return data.name;
+                                }
+                            }),
+                            "renderer": $.fn.dataTable.Responsive.renderer.tableAll({
+                                tableClass: 'table'
+                            })
+                        }
+                    },
                     "sPaginationType": "full_numbers",
                     'autoWidth': false,
                     'select': true,
@@ -32,12 +43,12 @@ function rolesEdit(commonFunctions) {
                     'ajax': {
                         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                         beforeSend: function () {
-                            if ($('#table_permissions_filter [type="search"]').val() == '')
+                            if ($('#table_users_filter [type="search"]').val() == '')
                                 commonFunctions.lock();
                         },
-                        url: base_url + '/getPermissionsOfARol',
+                        url: base_url + '/getUsersForAssingRole',
                         data: function (d) {
-                            d.id = $('#form-roles-edit').data('id');
+                            d.id = 1;
                         },
                         type: 'POST',
                         complete: function () {
@@ -51,17 +62,19 @@ function rolesEdit(commonFunctions) {
                         {responsivePriority: 2, targets: [2, 3]}],
                     'columns': [
                         {'data': 'id', 'className': 'font-weight-bold align-middle', 'width': '15px', 'defaultContent': ''},
-                        {'data': 'name', 'className': 'align-middle', 'defaultContent': ''},
-                        {'data': 'guard_name', 'className': 'align-middle', 'width': '10px', 'defaultContent': ''},
-                        {'data': 'created_at', 'className': 'align-middle', 'width': '100px', 'defaultContent': ''},
+                        {'data': 'name', 'className': 'text-nowrap align-middle', 'defaultContent': ''},
+                        {'data': 'email', 'className': 'align-middle', 'defaultContent': ''},
+                        {'data': 'email_verified_at', 'className': 'align-middle', 'width': '100px', 'defaultContent': ''},
+                        {'data': 'created_at', 'className': 'align-middle', 'width': '15px', 'defaultContent': ''},
+                        {'data': 'action', 'className': 'align-right', 'width': '15px', 'defaultContent': ''},
                     ]
                 });
-                table_permissions
+                table_users
                     .on('select', function (e, dt, type, indexes) {
-                        var rowData = table_permissions.rows(indexes).data().toArray();
-                        select_table_permissions = rowData[0];
+                        var rowData = table_users.rows(indexes).data().toArray();
+                        select_table_users = rowData[0];
                     });
-            /* Fin de funcion que inicializa DataTables de permisos de un determinado rol */
+            /* Fin de funcion que inicializa DataTables de usuarios */
 
             /* Evento submit de form add permission */
             $(document).on('submit', '#form-add-permission', function (event) {
@@ -101,6 +114,6 @@ function rolesEdit(commonFunctions) {
 }
 
 $(function () {
-    var roles_edit = new rolesEdit(new commonFunctions());
-    roles_edit.constructor();
+    var assing_roles = new assingRoles(new commonFunctions());
+    assing_roles.constructor();
 });

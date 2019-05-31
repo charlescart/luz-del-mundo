@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog" id="modal-roles-create">
+<div class="modal" tabindex="-1" role="dialog" id="modal-invite-role">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,7 +8,22 @@
         </button>
       </div>
       <div class="modal-body">
-        @include('dashboard.roles.partials.form-role')
+          <form class="form-material text-secondary">
+
+              {{ csrf_field() }}
+              <div class="form-group">
+                  <input type="text" name="name" class="form-control input-material" autofocus required autocomplete="off">
+                  <label for="name" class="col-form-label text-md-right label-material"> {{ __('form.name') }} </label>
+                  <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="guard_name" class="form-control input-material" required>
+                  <label for="guard_name" class="col-form-label text-md-right label-material">{{ __('form.guard name') }}</label>
+                  <div class="invalid-feedback"></div>
+              </div>
+
+          </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-0 btn-sm" data-dismiss="modal">{{ __('btn.cancel') }}</button>

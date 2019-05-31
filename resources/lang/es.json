@@ -3,6 +3,7 @@
     "Register": "Registrarse",
     "Forgot Your Password?": "¿Olvidaste tu contraseña?",
     "E-Mail Address": "Email",
+    "E-Mail Verified": "Email Verificado",
     "Password": "Contraseña",
     "Remember Me": "Recordarme",
     "Reset Password": "Restablecer Contraseña",
@@ -47,5 +48,6 @@
     "Debit": "Debe",
     "Solvent": "Solvente",
     "Assing Roles": "Asignar Roles",
-    "Permission": "Permiso"
+    "Permission": "Permiso",
+    "Registed": "Registrado"
 }

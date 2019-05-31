@@ -27,7 +27,7 @@ class RoleController extends Controller
         $this->middleware('permission:roles.show')->only(['show', 'getPermissionsOfARol']);
         $this->middleware('permission:roles.edit')->only(['edit', 'update']);
         $this->middleware('permission:roles.destroy')->only('destroy');
-        $this->middleware('permission:roles.assing-roles')->only('assingARol');
+        $this->middleware('permission:roles.assing-roles')->only(['assingARol', 'getUsersForAssingRole']);
     }
 
     /**
@@ -188,21 +188,6 @@ class RoleController extends Controller
             ->make(true);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function assingARol()
-    {
-        $data = [
-            'dropDown' => 'Configuration',
-            'module' => 'assingRoles',
-        ];
-        return view('dashboard.roles.assing_role', $data);
-    }
-
-
     public function addPermissionToARole(Request $request)
     {
         $role = Role::findByName($request->role_name);
@@ -214,4 +199,41 @@ class RoleController extends Controller
         } else
             return response()->json(['success' => true, 'msg' => 102]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function assingARol()
+    {
+        $data = [
+            'dropDown' => 'Configuration',
+            'module' => 'assingRoles',
+        ];
+        return view('dashboard.roles.assing-role', $data);
+    }
+
+    public function getUsersForAssingRole()
+    {
+        $users = User::select('id', 'name', 'email', 'created_at', 'email_verified_at')->orderBy('id', 'desc')->get();
+        $boton = View::make('dashboard.roles.partials.btn-action')->render();
+
+        return DataTables::of($users)
+            ->editColumn('name', function (User $user) {
+                if (strlen($user->name) > 40)
+                    return substr($user->name, 0, 40).'...';
+                else
+                    return $user->name;
+            })
+            ->editColumn('created_at', function (User $user) {
+                return $user->created_at->diffForHumans();
+            })
+            ->editColumn('email_vefiried_at', function (User $user) {
+                return ($user->email_verified_at != null) ? $user->email_verified_at->diffForHumans() : null;
+            })
+            ->addColumn('action', $boton)
+            ->make(true);
+    }
+
 }

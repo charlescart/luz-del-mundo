@@ -221,7 +221,7 @@
             <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
             <ul class="list-unstyled">
                 <li class="{{ ($module == 'Home') ? 'active' : '' }}">
-                    <a href="#!">
+                    <a href="{{route('home')}}">
                         <i class="icon-home"></i>
                         {{ __('Home') }}
                     </a>
@@ -234,7 +234,7 @@
                         </a>
                         <ul id="configuracionDropdown" class="collapse list-unstyled {{ ($dropDown == 'Configuration') ? 'show' : '' }} ">
                             <li class="{{ ($module == 'Roles') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Roles') }}</a></li>
-                            <li class="{{ ($module == 'assingRole') ? 'active' : '' }}"><a href="{{ route('roles.assing-roles') }}">{{ __('Assing Roles') }}</a></li>
+                            <li class="{{ ($module == 'assingRoles') ? 'active' : '' }}"><a href="{{ route('roles.assing-roles') }}">{{ __('Assing Roles') }}</a></li>
                             {{--<li><a href="#">Page</a></li>
                             <li><a href="#">{{ url()->current() }}</a></li>--}}
                         </ul>

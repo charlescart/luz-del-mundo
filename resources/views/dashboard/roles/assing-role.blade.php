@@ -4,7 +4,7 @@
     <!-- Page Header-->
     <header class="page-header p-2 d-none">
         <div class="container-fluid">
-            <span class="p-0 lead"><i class="fa fa-globe mr-2" aria-hidden="true"></i> {{ __('Roles') }}</span>
+            <span class="p-0 lead"><i class="fa fa-globe mr-2" aria-hidden="true"></i> {{ __('Assing Roles') }}</span>
         </div>
     </header>
     <div class="row">
@@ -13,20 +13,21 @@
                 <div class="card-header p-2">
                     <i class="fa fa-globe mr-2" aria-hidden="true"></i>
                     <span class="align-middle">{{ __('Roles') }}</span>
-                    @if(Auth::user()->hasPermissionTo('roles.create'))
-                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-roles-create" data-form="form-roles-create" data-title="{{ __('Create a :text', ['text' => __('Role')]) }}">{{ __('btn.create') }}</a>
+                    @if(Auth::user()->hasPermissionTo('roles.invite-role'))
+                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-roles-create" data-form="form-invite-role" data-title="{{ __('Create a :text', ['text' => __('Role')]) }}">{{ __('btn.invite') }}</a>
                     @endif
                 </div>
 
                 <div class="card-body p-0 mt-3">
                     <div class="col p-1 p-sm-2">
-                        <table id="table_roles" class="table dt-responsive table-striped  table-sm" width="100%">
+                        <table id="table_users" class="table dt-responsive table-striped  table-sm" width="100%">
                             <thead class="thead-light">
                             <tr>
                                 <th>Id</th>
-                                <th>{{ __('Role') }}</th>
-                                <th>{{ __('Date') }}</th>
-                                <th>{{ __('Guard') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th class="text-nowrap">{{ __('E-Mail Address') }}</th>
+                                <th class="text-nowrap">{{ __('E-Mail Verified') }}</th>
+                                <th>{{ __('Registed') }}</th>
                                 <th class="text-rigth">{{ __('Action') }}</th>
                             </tr>
                             </thead>
@@ -38,8 +39,7 @@
         </div>
     </div>
 
-    @includeWhen(Auth::user()->hasPermissionTo('roles.create'), 'dashboard.roles.create')
-    @includeWhen(Auth::user()->hasPermissionTo('roles.show'), 'dashboard.roles.show')
+    @includeWhen(Auth::user()->hasPermissionTo('roles.create'), 'dashboard.roles.create'){{-- invite-role --}}
 @endsection
 
 
@@ -74,5 +74,5 @@
     <!-- Functions comunes-->
     <script src="{{ asset('js/common/common-functions.js') }}" defer></script>
     {{--  Script de la funcionalidad index --}}
-    <script src="{{ asset('js/dashboard/roles/roles-index.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard/roles/roles-assing-roles.js') }}" defer></script>
 @endpush

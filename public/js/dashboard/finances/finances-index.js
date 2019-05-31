@@ -213,7 +213,7 @@ function financesIndex(commonFunctions) {
             });
             /*Fin de evento click de btn edit de fila de tabla roles*/
 
-            $('#table_finance').on('click', '.btn-finance-destroy', function (event) {
+            $('#table_finance').on('click', '.btn-destroy', function (event) {
                 let btn = this;
                 let id = select_table_finance.id;
                 iziToast.question({

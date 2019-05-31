@@ -345,6 +345,8 @@ function commonFunctions() {
                 window.open($(this).attr("href"));
             });
             /* Fin de external links to new window */
+
+            console.info('Funciones comunes de dashboard cargadas!');
         }
     this.common_events = function () {
 

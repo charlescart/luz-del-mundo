@@ -38,6 +38,7 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getPermissionsOfARol', 'RoleController@getPermissionsOfARol')->name('role.getPermissionsOfARol');
     Route::post('addPermissionToARole', 'RoleController@addPermissionToARole')->name('roles.addPermissionToARole');
     Route::get('assing-roles', 'RoleController@assingARol')->name('roles.assing-roles');
+    Route::post('getUsersForAssingRole', 'RoleController@getUsersForAssingRole')->name('roles.getUsersForAssingRole');
     /*Fin de Routes de Roles*/
 
     /*Routes de Finance*/

@@ -42,11 +42,6 @@
                                         <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
-
-                                <div class="col text-center text-sm-right">
-                                    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
-                                    <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                                </div>
                             </div>
 
                         </form>

@@ -242,5 +242,6 @@ table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected { ba
 div.dataTables_wrapper, div.dataTables_filter label { color: #868e96;}
 div.dataTables_filter input[type="search"] { border: none; border-bottom: 1px solid #132fb3;}
 div.dataTables_filter input[type="search"]:focus { -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0);}
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before { top: auto !important; }
 
 /**/
