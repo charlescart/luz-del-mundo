@@ -56,8 +56,7 @@
             "@php artisan package:discover"
         ],
         "post-install-cmd": [
-            "chmod -R 777 public/",
-            "chmod -R 777 /public/"
+            "chmod -R 777 public/"
         ]
     },
     "config": {
