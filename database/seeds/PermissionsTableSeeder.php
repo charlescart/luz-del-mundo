@@ -49,13 +49,13 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         /*Rol de quien maneja el ingreso de diezmo para control del pastor*/
-        $guest = Role::create(['name' => 'TitheWriter']);
+        // $guest = Role::create(['name' => 'TitheWriter']);
 
         //User Admin y Shepherd
         $user = User::find(6); //Administrator Rodriguez
         $user->assignRole('Administrator');
         $user = User::find(7); //Pastor Rodriguez
-        $user->assignRole('shepherd');
+        $user->assignRole('Shepherd');
 
 
     }
