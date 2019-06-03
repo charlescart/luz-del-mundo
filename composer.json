@@ -15,7 +15,8 @@
         "laravolt/avatar": "^2.0",
         "spatie/laravel-permission": "^2.17",
         "yajra/laravel-datatables-oracle": "~8.0",
-        "fzaninotto/faker": "^1.4"
+        "fzaninotto/faker": "^1.4",
+        "ext-gd": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

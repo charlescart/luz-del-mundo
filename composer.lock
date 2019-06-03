@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc80f43f93e7ed26390e3323f406faa8",
+    "content-hash": "c4a367e53bf005be9f28e3a11d80728b",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -5866,7 +5866,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-gd": "*"
     },
     "platform-dev": []
 }
