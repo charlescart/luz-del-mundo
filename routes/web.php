@@ -43,10 +43,10 @@ Route::group(['middleware' => ['lang']], function () {
     /*Fin de Routes de Roles*/
 
     /*Routes de Asignar Roles*/
-    Route::resource('assing-roles', 'assingRolesController');
-    Route::post('getUsersForAssingRole', 'assingRolesController@getUsersForAssingRole')->name('assing-roles.getUsersForAssingRole');
-    Route::post('getRolesForAssingRole', 'assingRolesController@getRolesForAssingRole')->name('assing-roles.getRolesForAssingRole');
-    Route::post('assingRolesForUser', 'assingRolesController@assingRolesForUser')->name('assing-roles.assingRolesForUser');
+    Route::resource('assing-roles', 'AssingRolesController');
+    Route::post('getUsersForAssingRole', 'AssingRolesController@getUsersForAssingRole')->name('assing-roles.getUsersForAssingRole');
+    Route::post('getRolesForAssingRole', 'AssingRolesController@getRolesForAssingRole')->name('assing-roles.getRolesForAssingRole');
+    Route::post('assingRolesForUser', 'AssingRolesController@assingRolesForUser')->name('assing-roles.assingRolesForUser');
     /*Fin de Routes de Asignar Roles*/
 
     /*Routes de Finance*/
