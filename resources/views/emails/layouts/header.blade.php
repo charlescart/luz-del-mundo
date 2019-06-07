@@ -20,7 +20,7 @@
                                             <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0">
                                                 <tbody>
                                                 <tr>
-                                                    <td style="width:70px;"><a href="{{ url('/') }}" target="_blank"><img alt="Luz del Mundo, Barcelona 31" height="auto" src="{{ $message->embed(public_path().'\img\estrella-david-blanca.jpg') }}" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" width="75"></a></td>
+                                                    <td style="width:70px;"><a href="{{ url('/') }}" target="_blank"><img alt="Luz del Mundo, Barcelona 31" height="auto" src="{{ $message->embed(realpath("public/img/estrella-david-blanca.jpg")) }}" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" width="75"></a></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
