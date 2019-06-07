@@ -14,6 +14,7 @@ return [
     -4 => 'No encontrado!',
     -5 => 'El fondo del que se debitará no es un fondo de débito!',
     -6 => 'Quieres asignar roles que no existen, no se puede!',
+    -7 => 'Lo sentimos, no se podrá avisar por Email!',
 
     /* Success */
     1 => 'Operación realizada con éxito!',

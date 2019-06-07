@@ -14,6 +14,7 @@ return [
     -4 => 'Not found!',
     -5 => 'The fund to be debited from is not a debit fund!',
     -6 => 'You want to assign roles that do not exist, you can not!',
+    -7 => 'Im sorry, you can not be notified by email!',
 
     /* Success */
     1 => 'Operation carried out successfully!',

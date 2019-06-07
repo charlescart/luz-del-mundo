@@ -155,12 +155,12 @@ class AssingRolesController extends Controller
 
         $user = User::where('id', $request->user_id)->first();
         $user->syncRoles($rolesToAssing);
-//        try {
-        if(count($rolesToAssing) > 0)
-            Mail::to($user->email, $user->name)->send(new AssignmentOfRoles($user, $rolesToAssing));
-        /*} catch (\Exception $e) {
-            return response()->json(['success' => false, 'msg' => -11], 200);
-        }*/
+        try {
+            if(count($rolesToAssing) > 0)
+                Mail::to($user->email, $user->name)->send(new AssignmentOfRoles($user, $rolesToAssing));
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'msg' => -7], 200);
+        }
 
         return response()->json(['success' => true, 'msg' => 1], 201);
             /*
