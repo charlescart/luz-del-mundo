@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
     <title>{{ config('app.name', 'Laravel') }} - {{ __('Dashboard') }}</title>
 
     <!-- Scripts -->
@@ -234,7 +237,8 @@
                         </a>
                         <ul id="configuracionDropdown" class="collapse list-unstyled {{ ($dropDown == 'Configuration') ? 'show' : '' }} ">
                             <li class="{{ ($module == 'Roles') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Roles') }}</a></li>
-                            <li class="{{ ($module == 'assingRoles') ? 'active' : '' }}"><a href="{{ route('roles.assing-roles') }}">{{ __('Assing Roles') }}</a></li>
+                            <li class="{{ ($module == 'assingRoles') ? 'active' : '' }}"><a href="{{ route('assing-roles.index') }}">{{ __('Assing Roles') }}</a></li>
+                            <li class="{{ ($module == 'inviteUser') ? 'active' : '' }}"><a href="{{ route('assing-roles.index') }}">{{ __('Invite User') }}</a></li>
                             {{--<li><a href="#">Page</a></li>
                             <li><a href="#">{{ url()->current() }}</a></li>--}}
                         </ul>

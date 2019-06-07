@@ -21,6 +21,7 @@
     "Name": "Nombre",
     "E-Mail": "Correo",
     "Role": "Rol",
+    "Roles": "Roles",
     "Date": "Fecha",
     "Create a :text": "Crear :text",
     "Guard": "Guarda",
@@ -49,5 +50,13 @@
     "Solvent": "Solvente",
     "Assing Roles": "Asignar Roles",
     "Permission": "Permiso",
-    "Registed": "Registrado"
+    "Registed": "Registrado",
+    "Create Invitation": "Crear Invitación",
+    "Assigned roles": "Roles asignados",
+    "Search for a user": "Buscar un usuario",
+    "Unregistered user will be sent an invitation to register on the platform": "Usuario no registrado, se le enviará una invitación para registrarse en la plataforma",
+    "Type the email of a user": "Tipea el email de algún usuario",
+    "Invite User": "Invitar Usuario",
+    "Manage Roles": "Administrar Roles",
+    ":name, Assignment of new roles": ":name, Asignación de nuevos roles"
 }

@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }} input-material" name="name" value="{{ old('name') }}" required autofocus autocomplete="off">
+                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }} input-material" name="name" value="{{ old('name') }}" required autocomplete="off">
                             <label for="name" class="col-form-label text-md-right label-material">{{ __('Name') }}</label>
 
                             @if ($errors->has('name'))

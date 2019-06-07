@@ -1646,8 +1646,8 @@ section.charts div[class*="col-"] {
   background-color: #fff;
   border-color: #796AEE;
   outline: none;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem #132fb314;
+  box-shadow: 0 0 0 0.2rem #132fb314;
 }
 
 .form-control-sm {
@@ -3483,6 +3483,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination { justify-content: 
 @media(min-width: 768px){
     div.dataTables_wrapper div.dataTables_paginate ul.pagination { justify-content: flex-end; }
 }
+.paginate-center-force > ul.pagination{ justify-content: center !important; } /*Porque es un modal pequeño, necesito paginacion centrica*/
+.text-info-center-force { white-space: normal !important; text-align: center !important; }
 
 /* Badge Modificados */
 .badge-dark {

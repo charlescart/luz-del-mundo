@@ -4,6 +4,7 @@
     window.mensaje_delete = '{!! trans('mensaje.delete') !!}';
     window.btn_delete = '{!! trans('btn.delete') !!}';
     window.btn_cancel = '{!! trans('btn.cancel') !!}';
+    window.assigned_roles = '{!! __('Assigned roles') !!}';
     window.preloader = '<svg viewBox="0 0 120 120" width="100px" height="100px"> <circle class="inner" cx="60" cy="60" r="32"/> <circle class="middle" cx="60" cy="60" r="38"/> <circle class="outer" cx="60" cy="60" r="44"/></svg><span class="text-nowrap" style="display: block; color: #aacbb0; margin-left: 0;">{!! trans('mensaje.preloader') !!}</span>';
     window.msg_flash = '{!! (session('msg')) ? session('msg') : 'false' !!}';
     window.msg_unauthenticated = '{!! trans('auth.unauthenticated') !!}';
@@ -80,6 +81,7 @@
         msg[-3] = '{!! trans('mensaje.-3') !!}';
         msg[-4] = '{!! trans('mensaje.-4') !!}';
         msg[-5] = '{!! trans('mensaje.-5') !!}';
+        msg[-6] = '{!! trans('mensaje.-6') !!}';
 
         /* SUCCESS */
         msg[1] = '{!! trans('mensaje.1') !!}';

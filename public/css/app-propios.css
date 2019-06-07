@@ -29,7 +29,7 @@ button, input { outline: none !important;}
 .form-control:focus {
   color: #495057;
   background-color: transparent;
-  border-color: #796AEE;
+  border-color: #132fb36e;
   outline: none;
   /* -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25);
   box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25); */
@@ -235,6 +235,11 @@ input.input-material.is-invalid ~ label {
 
 /*Fin select Material*/
 
+/*Form Original*/
+.col-form-label {padding-bottom: 0 !important;}
+.form-group {margin-bottom: 0.5rem !important;}
+/*Fin de Form Original*/
+
 
 /* DataTables */
 table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected { color: #132fb3; }
@@ -243,5 +248,5 @@ div.dataTables_wrapper, div.dataTables_filter label { color: #868e96;}
 div.dataTables_filter input[type="search"] { border: none; border-bottom: 1px solid #132fb3;}
 div.dataTables_filter input[type="search"]:focus { -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0);}
 table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before { top: auto !important; }
-
+table.table-white thead th, table.table-white .thead-light th { border-bottom: 1px solid #dee2e6; background-color: #ffffff; border-color: #f1f1f1; }
 /**/

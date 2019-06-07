@@ -5,7 +5,7 @@
 
 /* Funciones de uso commun o recurrente */
 function commonFunctions() {
-
+    selft = this;
     this.constructor = function () {
         // this.common_events();
         console.info('Funciones comunes cargadas!');
@@ -15,12 +15,16 @@ function commonFunctions() {
                 if (msg_flash != 'false')
                     msg(msg_flash);
         },
-        this.apply_error_menssages = function (data, form_id) {
+        this.apply_error_menssages = function (data, form_id, msgOnly = false) {
             switch (data.status) {
                 case 422: /* Errores de validacion */
                     $.each(data.responseJSON.errors, function (name, msg) {
-                        $('#' + form_id + ' [name="' + name + '"]').addClass('is-invalid');
-                        $('#' + form_id + ' [name="' + name + '"]').siblings('div.invalid-feedback:first').text(msg[0]);
+                        if(msgOnly)
+                            iziToast.error({message: msg[0], position: 'topRight', timeout: time_toast, backgroundColor: error_color, theme: 'dark'});
+                        else {
+                            $('#' + form_id + ' [name="' + name + '"]').addClass('is-invalid');
+                            $('#' + form_id + ' [name="' + name + '"]').siblings('div.invalid-feedback:first').text(msg[0]);
+                        }
                     });
                     break;
                 case 403: /* Acceso no autorizado por Request o Roles*/
@@ -54,7 +58,8 @@ function commonFunctions() {
             }
         },
         this.clean_error_messages = function (fields, selft) {
-            /* var "fields" son inputs serializados del form "$(this).serializeArray()", var "selft" el elemento en si, es un "this" */
+            /* var "fields" son inputs serializados del form "$(this).serializeArray()",
+            * var "selft" el elemento en si, es un "this" */
             $.each(fields, function (i, field) {
                 $('#' + selft.id + ' [name="' + field.name + '"]').removeClass('is-invalid');
             });
@@ -68,9 +73,13 @@ function commonFunctions() {
         this.unlock = function () {
             $.unblockUI();
         },
-        /*
-        * Convierte el texto en slug
-        * */
+        /* limpia el input del form cuando esta escribiendo para corregir */
+        this.clean_invalidation_form = function (input) {
+            let padre = $(input).parent('div');
+            $(input).removeClass('is-invalid');
+            padre.children('invalid-feedback').text('');
+        },
+        /* Convierte el texto en slug */
         this.string_to_slug = function (s, opt) {
             s = String(s);
             opt = Object(opt);
@@ -347,14 +356,25 @@ function commonFunctions() {
             /* Fin de external links to new window */
 
             console.info('Funciones comunes de dashboard cargadas!');
+        },
+        this.common_events = function () {
+            /* limpia de invalidaciones (is-invalid) el form antes de hacer submit */
+            $('form').on('submit', function (event) {
+                selft.clean_error_messages($(this).serializeArray(), this);
+            });
+            /* Fin de limpia de invalidaciones (is-invalid) el form antes de hacer submit */
+
+            /* limpia de (is-invalid) el input al hacer keyup */
+            $(document).on('keyup', 'input.is-invalid, textarea.is-invalid', function (event) {
+                selft.clean_invalidation_form(this);
+            });
+            /* Fin de limpia de (is-invalid) el input al hacer keyup */
+
+            /* BOTON ATRAS DE TOAST */
+            $(document).on('click', '.btn-behind', function (event) {
+                /* code... */
+            });
+            /* FIN DE BOTON ATRAS DE TOAST */
+
         }
-    this.common_events = function () {
-
-        /* BOTON ATRAS DE TOAST */
-        $(document).on('click', '.btn-behind', function (event) {
-            /* code... */
-        });
-        /* FIN DE BOTON ATRAS DE TOAST */
-
-    }
 }

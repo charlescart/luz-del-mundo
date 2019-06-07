@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} input-material" name="email" value="{{ old('email') }}" required autofocus autocomplete="off">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} input-material" name="email" value="{{ old('email') }}" required autocomplete="off">
                                 <label for="email" class="col-form-label text-md-right label-material">
                                     <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
                                     {{ __('E-Mail Address') }}

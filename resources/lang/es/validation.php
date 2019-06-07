@@ -114,6 +114,7 @@ return [
 
 	'attributes' => [
 		'username' => 'usuario',
+		'user_id' => 'id de usuario',
 		'password' => 'contraseña',
 		'name' => 'nombre',
 		'guard_name' => 'nombre de guarda',

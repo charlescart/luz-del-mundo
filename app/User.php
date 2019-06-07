@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'email_verified_at'];
 
     public function finances()
     {

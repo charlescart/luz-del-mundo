@@ -12,10 +12,10 @@
             <div class="card">
                 <div class="card-header p-2">
                     <i class="fa fa-globe mr-2" aria-hidden="true"></i>
-                    <span class="align-middle">{{ __('Roles') }}</span>
-                    @if(Auth::user()->hasPermissionTo('roles.invite-role'))
-                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-roles-create" data-form="form-invite-role" data-title="{{ __('Create a :text', ['text' => __('Role')]) }}">{{ __('btn.invite') }}</a>
-                    @endif
+                    <span class="align-middle">{{ __('Assing Roles') }}</span>
+                    {{--@if(Auth::user()->hasPermissionTo('roles.assing-roles'))--}}
+                        {{--<a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-invite-role" data-form="form-invite-role">{{ __('Create Invitation') }}</a>--}}
+                    {{--@endif--}}
                 </div>
 
                 <div class="card-body p-0 mt-3">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    @includeWhen(Auth::user()->hasPermissionTo('roles.create'), 'dashboard.roles.create'){{-- invite-role --}}
+    @includeWhen(Auth::user()->hasPermissionTo('assing-roles.edit'), 'dashboard.assing-roles.edit')
 @endsection
 
 
@@ -60,6 +60,8 @@
     <link href="{{ asset('css/plugins/button-loader/button-loader.css') }}" rel="stylesheet">
     {{--  Style Plugin izi-toast  --}}
     <link href="{{ asset('css/plugins/izi-toast/izi-toast.min.css') }}" rel="stylesheet">
+    {{--  Style Plugin TagEditor  --}}
+    <link href="{{ asset('css/common/tag-editor.css') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
@@ -73,6 +75,10 @@
     <script src="{{ asset('js/plugins/izi-toast/izi-toast.min.js') }}" defer></script>
     <!-- Functions comunes-->
     <script src="{{ asset('js/common/common-functions.js') }}" defer></script>
+    {{--  Script de Plugin TagEditor--}}
+    <script src="{{ asset('js/common/tag-editor.min.js') }}" defer></script>
+    {{--  Script de plugin caret --}}
+    <script src="{{ asset('js/common/caret.min.js') }}" defer></script>
     {{--  Script de la funcionalidad index --}}
-    <script src="{{ asset('js/dashboard/roles/roles-assing-roles.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard/assing-roles/assing-roles-index.js') }}" defer></script>
 @endpush

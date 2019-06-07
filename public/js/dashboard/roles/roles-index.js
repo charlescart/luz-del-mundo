@@ -141,13 +141,13 @@ function rolesIndex(commonFunctions) {
             /* Fin de evento doble click de dataTables */
 
             /*Evento click de btn show de fila de tabla roles*/
-            $('#table_roles').on('click', 'tr .btn-show', function (event) {
+            $(document).on('click', 'tr .btn-show', function (event) {
                 $('#modal-roles-show').modal('show');
             });
             /*Fin de evento click de btn show de fila de tabla roles*/
 
             /*Evento click de btn edit de fila de tabla roles*/
-            $('#table_roles').on('click', 'tr .btn-edit', function (event) {
+            $(document).on('click', 'tr .btn-edit', function (event) {
                 window.location.href = base_url + '/roles/' + select_table_roles.id + '/edit';
             });
             /*Fin de evento click de btn edit de fila de tabla roles*/

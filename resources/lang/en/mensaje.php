@@ -13,6 +13,7 @@ return [
     -3 => 'Access denied, not authorized!',
     -4 => 'Not found!',
     -5 => 'The fund to be debited from is not a debit fund!',
+    -6 => 'You want to assign roles that do not exist, you can not!',
 
     /* Success */
     1 => 'Operation carried out successfully!',

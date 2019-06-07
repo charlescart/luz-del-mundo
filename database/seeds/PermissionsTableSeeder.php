@@ -20,23 +20,45 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'roles.show']);
         Permission::create(['name' => 'roles.edit']);
         Permission::create(['name' => 'roles.destroy']);
-        Permission::create(['name' => 'roles.assing-roles']);
-        Permission::create(['name' => 'roles.invite-role']);
 
-        factory(Role::class, 100)->create();
+        Permission::create(['name' => 'assing-roles.index']);
+        Permission::create(['name' => 'assing-roles.edit']);
+
+        Permission::create(['name' => 'guestUser.index']);
+        Permission::create(['name' => 'guestUser.create']);
+        Permission::create(['name' => 'guestUser.show']);
+        Permission::create(['name' => 'guestUser.edit']);
+        Permission::create(['name' => 'guestUser.destroy']);
+
+//        factory(Role::class, 50)->create();
 
         //Admin
         $admin = Role::create(['name' => 'Administrator']);
 
+        /* Menu de Configuracion -> Roles */
         $admin->givePermissionTo([
             'roles.index',
             'roles.create',
             'roles.show',
             'roles.edit',
             'roles.destroy',
-            'roles.assing-roles',
-            'roles.invite-role',
         ]);
+
+        /* Menu de Configuracion -> Asignar Roles */
+        $admin->givePermissionTo([
+            'assing-roles.index',
+            'assing-roles.edit',
+        ]);
+
+        /* Menu de Configuracion -> Invitar User, table "guest_users" */
+        $admin->givePermissionTo([
+            'guestUser.index',
+            'guestUser.create',
+            'guestUser.show',
+            'guestUser.edit',
+            'guestUser.destroy',
+        ]);
+
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
 

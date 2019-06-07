@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
             ['name' => 'Oriana Rodriguez', 'email' => 'oriana@gmail.com'],
             ['name' => 'Oriannys Rodriguez', 'email' => 'oriannys@gmail.com'],
             ['name' => 'Gonzalo Zavala', 'email' => 'gonzalo@gmail.com'],
-            ['name' => 'Charles Rodriguezz', 'email' => 'admin@gmail.com'],
+            ['name' => 'Charles Rodriguez', 'email' => 'admin@gmail.com'],
             ['name' => 'Pastor Rodriguez', 'email' => 'pastor@gmail.com'],
         ];
 
@@ -25,10 +25,6 @@ class ProductsTableSeeder extends Seeder
             $user = factory(App\User::class)->create([
                 'name' => $people['name'],
                 'email' => $people['email'],
-            ]);
-
-            $products = factory(App\Product::class, 20)->create([
-                'user_id' => $user->id,
             ]);
 
             $finances = factory(App\Finance::class, 10)->create([

@@ -37,9 +37,17 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getUsersWithRoles', 'RoleController@getUsersWithRoles')->name('role.getUsersWithRoles');
     Route::post('getPermissionsOfARol', 'RoleController@getPermissionsOfARol')->name('role.getPermissionsOfARol');
     Route::post('addPermissionToARole', 'RoleController@addPermissionToARole')->name('roles.addPermissionToARole');
-    Route::get('assing-roles', 'RoleController@assingARol')->name('roles.assing-roles');
-    Route::post('getUsersForAssingRole', 'RoleController@getUsersForAssingRole')->name('roles.getUsersForAssingRole');
+
+//    Route::get('assing-roles', 'RoleController@assingARol')->name('roles.assing-roles');
+//    Route::post('searchEmail', 'RoleController@searchEmail')->name('roles.searchEmail');
     /*Fin de Routes de Roles*/
+
+    /*Routes de Asignar Roles*/
+    Route::resource('assing-roles', 'assingRolesController');
+    Route::post('getUsersForAssingRole', 'assingRolesController@getUsersForAssingRole')->name('assing-roles.getUsersForAssingRole');
+    Route::post('getRolesForAssingRole', 'assingRolesController@getRolesForAssingRole')->name('assing-roles.getRolesForAssingRole');
+    Route::post('assingRolesForUser', 'assingRolesController@assingRolesForUser')->name('assing-roles.assingRolesForUser');
+    /*Fin de Routes de Asignar Roles*/
 
     /*Routes de Finance*/
     Route::resource('finances', 'FinanceController');
