@@ -194,6 +194,15 @@ function commonFunctions() {
             return opt.lowercase ? s.toLowerCase() : s;
         },
         /*
+        * Limpia y destruye el tag editor
+        */
+        this.clearAndDestroyTagEditor = function(dial) {
+            /* dial: variable de tipo string que contiene el selector, sea id o clase */
+            let tags = $(dial).tagEditor('getTags')[0].tags;
+            for (i = 0; i < tags.length; i++) { $(dial).tagEditor('removeTag', tags[i]); }
+            $(dial).tagEditor('destroy');
+        }
+        /*
         * Aplica fondos tipo particles
         * */
         this.particles = function () {
@@ -344,7 +353,7 @@ function commonFunctions() {
             /* Fin de Footer */
 
             /* Tooltips init */
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
             /* Fin de tooltips init */
 
             /* External links to new window */
@@ -375,6 +384,8 @@ function commonFunctions() {
                 /* code... */
             });
             /* FIN DE BOTON ATRAS DE TOAST */
+
+            console.info('eventos comunes cargado');
 
         }
 }

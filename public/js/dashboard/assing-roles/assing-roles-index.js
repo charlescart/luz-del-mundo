@@ -89,7 +89,7 @@ function assingRoles(commonFunctions) {
             /* Evento hidden de modal invite-role */
             $('#modal-manage-roles').on('hidden.bs.modal', function (e) {
                 table_roles.destroy();
-                selft.clearAndDestroyTagEditor('#tag-editor-roles');
+                commonFunctions.clearAndDestroyTagEditor('#tag-editor-roles');
             });
             /* Fin de evento hidden de modal invite-role */
 
@@ -155,8 +155,13 @@ function assingRoles(commonFunctions) {
                 type: 'POST',
                 complete: function (data) {
                     data = data.responseJSON;
-                    for (i = 0; i < data.assigned_roles.length; i++) {
-                        $('#tag-editor-roles').tagEditor('addTag', data.assigned_roles[i]);
+                    if(data.hasOwnProperty('assigned_roles'))
+                        for (i = 0; i < data.assigned_roles.length; i++) {
+                            $('#tag-editor-roles').tagEditor('addTag', data.assigned_roles[i], true);
+                        }
+                    else {
+                        msg(-8, time_toast);
+                        $('#modal-manage-roles').modal('hide')
                     }
                     commonFunctions.unlock();
                 }
@@ -169,7 +174,7 @@ function assingRoles(commonFunctions) {
             .on('select', function (e, dt, type, indexes) {
                 var rowData = table_roles.rows(indexes).data().toArray();
                 select_table_roles = rowData[0];
-                $('#tag-editor-roles').tagEditor('addTag', rowData[0].name);
+                $('#tag-editor-roles').tagEditor('addTag', rowData[0].name, true);
             });
         /* Fin de funcion que inicializa DataTables de roles */
 
@@ -177,13 +182,7 @@ function assingRoles(commonFunctions) {
         $('#table_roles_paginate').addClass('paginate-center-force');
         $('#table_roles_info').addClass('text-info-center-force');
         /* Ajuste de estilos a paginacion */
-    },
-        this.clearAndDestroyTagEditor = function(dial) {
-            /* dial: variable de tipo string que contiene el selector, sea id o clase */
-            let tags = $(dial).tagEditor('getTags')[0].tags;
-            for (i = 0; i < tags.length; i++) { $(dial).tagEditor('removeTag', tags[i]); }
-            $(dial).tagEditor('destroy');
-        }
+    }
 }
 
 $(function () {

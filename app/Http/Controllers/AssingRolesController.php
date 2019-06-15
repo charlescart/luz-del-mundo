@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateAssingRoleRequest;
+use App\Http\Requests\ValidateRolesForAssingRole;
 use App\Mail\AssignmentOfRoles;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,13 +20,7 @@ class AssingRolesController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission:assing-roles.index')->only(['index', 'getUsersForAssingRole']);
-        $this->middleware('permission:assing-roles.edit')->only(['getRolesForAssingRole',
-            'assingRolesForUser']);
-//        $this->middleware('permission:assing-roles.show')->only(['show']);
-//        $this->middleware('permission:assing-roles.edit')->only(['edit', 'update']);
-//        $this->middleware('permission:assing-roles.destroy')->only('destroy');
-        /*$this->middleware('permission:roles.assing-roles')->only(['assingARol', 'getUsersForAssingRole',
-            'searchEmail', 'getRolesForAssingRole', 'assingRolesForUser']);*/
+        $this->middleware('permission:assing-roles.edit')->only(['getRolesForAssingRole', 'assingRolesForUser']);
     }
 
     /**
@@ -130,7 +125,7 @@ class AssingRolesController extends Controller
             ->make(true);
     }
 
-    public function getRolesForAssingRole(Request $request) /*validar id de user con form request*/
+    public function getRolesForAssingRole(ValidateRolesForAssingRole $request)
     {
         $roles = Role::select('id', 'name')->orderBy('id', 'desc')->get();
         $user = User::where('id', $request->user_id)->first();
@@ -156,21 +151,12 @@ class AssingRolesController extends Controller
         $user = User::where('id', $request->user_id)->first();
         $user->syncRoles($rolesToAssing);
         try {
-            if(count($rolesToAssing) > 0)
+            if(count($rolesToAssing) > 0 && $request->send_email == true)
                 Mail::to($user->email, $user->name)->send(new AssignmentOfRoles($user, $rolesToAssing));
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'msg' => -7], 200);
         }
 
         return response()->json(['success' => true, 'msg' => 1], 201);
-            /*
-            $guestUser = New GuestUser;
-            $guestUser->fill($request->only('email'));
-            $guestUser->roles = json_encode($rolesToAssing);
-            if ($guestUser->save()) {
-                // Enviar email
-                return response()->json(['success' => true, 'msg' => 1], 201);
-            }
-            */
     }
 }

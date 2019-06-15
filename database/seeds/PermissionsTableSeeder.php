@@ -24,11 +24,9 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'assing-roles.index']);
         Permission::create(['name' => 'assing-roles.edit']);
 
-        Permission::create(['name' => 'guestUser.index']);
-        Permission::create(['name' => 'guestUser.create']);
-        Permission::create(['name' => 'guestUser.show']);
-        Permission::create(['name' => 'guestUser.edit']);
-        Permission::create(['name' => 'guestUser.destroy']);
+        Permission::create(['name' => 'guest-user.index']);
+        Permission::create(['name' => 'guest-user.create']);
+        Permission::create(['name' => 'guest-user.edit']);
 
 //        factory(Role::class, 50)->create();
 
@@ -52,11 +50,9 @@ class PermissionsTableSeeder extends Seeder
 
         /* Menu de Configuracion -> Invitar User, table "guest_users" */
         $admin->givePermissionTo([
-            'guestUser.index',
-            'guestUser.create',
-            'guestUser.show',
-            'guestUser.edit',
-            'guestUser.destroy',
+            'guest-user.index',
+            'guest-user.create',
+            'guest-user.edit',
         ]);
 
         //$admin->givePermissionTo('products.index');
@@ -66,7 +62,6 @@ class PermissionsTableSeeder extends Seeder
         $guest = Role::create(['name' => 'Shepherd']);
 
         $guest->givePermissionTo([
-            'roles.index',
             'roles.show'
         ]);
 

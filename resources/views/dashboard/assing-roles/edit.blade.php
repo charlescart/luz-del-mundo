@@ -34,6 +34,11 @@
               <div class="invalid-feedback"></div>
           </div>
 
+          <div class="form-check mb-0 mt-3">
+              <input type="checkbox" name="send_email" form="form-manage-roles" class="form-check-input" id="sendEmail" checked>
+              <label class="form-check-label" for="sendEmail">{{__('Send an E-mail')}}?</label>
+          </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-0 btn-sm" data-dismiss="modal">{{ __('btn.cancel') }}</button>

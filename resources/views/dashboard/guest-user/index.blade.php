@@ -4,7 +4,7 @@
     <!-- Page Header-->
     <header class="page-header p-2 d-none">
         <div class="container-fluid">
-            <span class="p-0 lead"><i class="fa fa-globe mr-2" aria-hidden="true"></i> {{ __('Assing Roles') }}</span>
+            <span class="p-0 lead"><i class="fa fa-globe mr-2" aria-hidden="true"></i> {{ __('Invite User') }}</span>
         </div>
     </header>
     <div class="row">
@@ -12,7 +12,10 @@
             <div class="card">
                 <div class="card-header p-2">
                     <i class="fa fa-globe mr-2" aria-hidden="true"></i>
-                    <span class="align-middle">{{ __('Assing Roles') }}</span>
+                    <span class="align-middle">{{ __('Invite User') }}</span>
+                    @if(Auth::user()->hasPermissionTo('guest-user.create'))
+                        <a href="#!" class="btn btn-outline-primary rounded-0 btn-sm float-right" style="min-width: 4rem;" data-toggle="modal" data-target="#modal-guest-user" data-form="form-create-guest-user" data-title="{{__('Send an invitation')}}">{{ __('Invite User') }}</a>
+                    @endif
                 </div>
 
                 <div class="card-body p-0 mt-3">
@@ -21,10 +24,9 @@
                             <thead class="thead-light">
                             <tr>
                                 <th>Id</th>
-                                <th>{{ __('Name') }}</th>
                                 <th class="text-nowrap">{{ __('E-Mail Address') }}</th>
-                                <th class="text-nowrap">{{ __('E-Mail Verified') }}</th>
-                                <th>{{ __('Registed') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Roles') }}</th>
                                 <th class="text-rigth">{{ __('Action') }}</th>
                             </tr>
                             </thead>
@@ -36,7 +38,7 @@
         </div>
     </div>
 
-    @includeWhen(Auth::user()->hasPermissionTo('assing-roles.edit'), 'dashboard.assing-roles.edit')
+    @includeWhen(Auth::user()->hasAnyPermission(['guest-user.create', 'guest-user.edit']), 'dashboard.guest-user.partials.modal-guest-user')
 @endsection
 
 
@@ -77,5 +79,5 @@
     {{--  Script de plugin caret --}}
     <script src="{{ asset('js/common/caret.min.js') }}" defer></script>
     {{--  Script de la funcionalidad index --}}
-    <script src="{{ asset('js/dashboard/assing-roles/assing-roles-index.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard/guest-user/guest-user-index.js') }}" defer></script>
 @endpush

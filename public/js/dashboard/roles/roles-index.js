@@ -8,6 +8,7 @@ function rolesIndex(commonFunctions) {
     this.constructor = function () {
         this.component_init();
         commonFunctions.common_dashboard();
+        commonFunctions.common_events();
     },
         this.component_init = function () {
 

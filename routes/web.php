@@ -19,14 +19,6 @@ Route::get('lang/{lang}', function ($lang) {
 
 Route::group(['middleware' => ['lang']], function () {
 
-    /* Routes de Users */
-    /*Route::get('/users', 'UserController@index')->name('users.index');
-    Route::get('/users/{id}', 'UserController@show')->name('users.show');
-    Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
-    Route::put('/users/{id}', 'UserController@update')->name('users.update');
-    Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');*/
-    /* Fin de Routes de Users */
-
     /*Routes de Products*/
     Route::resource('products', 'ProductController');
     Route::post('getProducts', 'ProductController@getProducts')->name('products.getProducts');
@@ -38,16 +30,20 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getPermissionsOfARol', 'RoleController@getPermissionsOfARol')->name('role.getPermissionsOfARol');
     Route::post('addPermissionToARole', 'RoleController@addPermissionToARole')->name('roles.addPermissionToARole');
 
-//    Route::get('assing-roles', 'RoleController@assingARol')->name('roles.assing-roles');
-//    Route::post('searchEmail', 'RoleController@searchEmail')->name('roles.searchEmail');
     /*Fin de Routes de Roles*/
 
     /*Routes de Asignar Roles*/
-    Route::resource('assing-roles', 'AssingRolesController');
+    Route::resource('assing-roles', 'AssingRolesController')->only(['index']);
     Route::post('getUsersForAssingRole', 'AssingRolesController@getUsersForAssingRole')->name('assing-roles.getUsersForAssingRole');
     Route::post('getRolesForAssingRole', 'AssingRolesController@getRolesForAssingRole')->name('assing-roles.getRolesForAssingRole');
     Route::post('assingRolesForUser', 'AssingRolesController@assingRolesForUser')->name('assing-roles.assingRolesForUser');
     /*Fin de Routes de Asignar Roles*/
+
+    /*Routes de Gues User (Invitar Usuario)*/
+    Route::resource('guest-user', 'GuestUserController')->only(['index', 'store', 'update']);
+    Route::post('getGuestUsers', 'GuestUserController@getGuestUsers')->name('guest-user.getGuestUsers');
+    Route::post('getRolesForGuestUser', 'GuestUserController@getRolesForGuestUser')->name('guest-user.getRolesForGuestUser');
+    /*Fin de Routes de Gues User (Invitar Usuario)*/
 
     /*Routes de Finance*/
     Route::resource('finances', 'FinanceController');

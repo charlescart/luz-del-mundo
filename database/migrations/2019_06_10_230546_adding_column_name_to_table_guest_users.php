@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddingColumnDebitToTableFinances extends Migration
+class AddingColumnNameToTableGuestUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddingColumnDebitToTableFinances extends Migration
      */
     public function up()
     {
-        Schema::table('finances', function (Blueprint $table) {
-            $table->unsignedInteger('debit_to')->after('currency_id');
+        Schema::table('guest_users', function (Blueprint $table) {
+            $table->string('name', 100)->after('id');
         });
     }
 
@@ -25,9 +25,9 @@ class AddingColumnDebitToTableFinances extends Migration
      */
     public function down()
     {
-        Schema::table('finances', function (Blueprint $table) {
-            if (Schema::hasColumn('finances', 'debit_to')) {
-                $table->dropColumn('debit_to');
+        Schema::table('guest_users', function (Blueprint $table) {
+            if (Schema::hasColumn('guest_users', 'name')) {
+                $table->dropColumn('name');
             }
         });
     }

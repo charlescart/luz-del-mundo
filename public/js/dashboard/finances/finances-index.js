@@ -8,6 +8,7 @@ function financesIndex(commonFunctions) {
     this.constructor = function () {
         this.component_init();
         commonFunctions.common_dashboard();
+        commonFunctions.common_events();
     },
         this.component_init = function () {
             /*Inicializando los tooltips*/
@@ -100,7 +101,6 @@ function financesIndex(commonFunctions) {
             /*Validaciones de clasificacion de finanzas*/
             $("#finance_classification_id").on('change', function (event) {
                 let select = $(event.relatedTarget);
-                // console.log($("#finance_classification_id option:selected").data('fund'));
 
                 if($(this).val() == 3 || $(this).val() == 4) {
                     if($(this).val() == 3) {
@@ -185,35 +185,9 @@ function financesIndex(commonFunctions) {
             });
             /*Fin de submit de form roles create*/
 
-            /* Evento show de modal roles show */
-            $('#modal-roles-show').on('show.bs.modal', function (event) {
-                let modal = $(this);
-                modal.find('.modal-title').text(select_table_roles.id + ' ' + select_table_roles.name);
-                modal.find('.roles-guard-name').text(select_table_roles.guard_name);
-                modal.find('.roles-date').text(select_table_roles.created_at);
-                selft.table_permissions();
-            });
-            /* Fin de evento show de modal roles show */
-
-            /* Evento hidden de modal roles show */
-            $('#modal-roles-show').on('hidden.bs.modal', function (e) {
-                table_permissions.destroy();
-            })
-            /* Fin de evento hidden de modal roles show */
-
-            /* Evento doble click de dataTables */
-            $('#table_roles').on('dblclick', 'tr', function (event) {
-                $('#modal-roles-show').modal('show');
-            });
-            /* Fin de evento doble click de dataTables */
-
-            /*Evento click de btn edit de fila de tabla roles*/
-            $('#table_roles').on('click', 'tr .btn-roles-edit', function (event) {
-                window.location.href = base_url + '/roles/' + select_table_roles.id + '/edit';
-            });
-            /*Fin de evento click de btn edit de fila de tabla roles*/
-
-            $('#table_finance').on('click', '.btn-destroy', function (event) {
+            $(document).on('click', '.btn-destroy', function (event) {
+                /* Cerrando el modal de Datatables */
+                $(this).parents('div.modal:first').modal('hide');
                 let btn = this;
                 let id = select_table_finance.id;
                 iziToast.question({

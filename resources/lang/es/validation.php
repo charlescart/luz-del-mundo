@@ -126,5 +126,6 @@ return [
         'description' => 'descripcion',
         'tithe' => 'diezmo',
         'fifth_part' => 'quinta parte',
+        'send_email' => 'enviar email',
 	],
 ];

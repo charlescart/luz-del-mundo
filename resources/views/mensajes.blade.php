@@ -83,6 +83,8 @@
         msg[-5] = '{!! trans('mensaje.-5') !!}';
         msg[-6] = '{!! trans('mensaje.-6') !!}';
         msg[-7] = '{!! trans('mensaje.-7') !!}';
+        msg[-8] = '{!! trans('mensaje.-8') !!}';
+        msg[-9] = '{!! trans('mensaje.-9') !!}';
 
         /* SUCCESS */
         msg[1] = '{!! trans('mensaje.1') !!}';
