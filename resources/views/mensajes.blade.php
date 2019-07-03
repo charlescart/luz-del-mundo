@@ -5,9 +5,10 @@
     window.btn_delete = '{!! trans('btn.delete') !!}';
     window.btn_cancel = '{!! trans('btn.cancel') !!}';
     window.assigned_roles = '{!! __('Assigned roles') !!}';
-    window.preloader = '<svg viewBox="0 0 120 120" width="100px" height="100px"> <circle class="inner" cx="60" cy="60" r="32"/> <circle class="middle" cx="60" cy="60" r="38"/> <circle class="outer" cx="60" cy="60" r="44"/></svg><span class="text-nowrap" style="display: block; color: #aacbb0; margin-left: 0;">{!! trans('mensaje.preloader') !!}</span>';
+    window.preloader = '<svg viewBox="0 0 120 120" width="100px" height="100px"> <circle class="inner" cx="60" cy="60" r="32"/> <circle class="middle" cx="60" cy="60" r="38"/> <circle class="outer" cx="60" cy="60" r="44"/></svg><span class="text-nowrap text-white-50" style="display: block; color: #aacbb0; margin-left: 0;">{!! trans('mensaje.preloader') !!}</span>';
     window.msg_flash = '{!! (session('msg')) ? session('msg') : 'false' !!}';
     window.msg_unauthenticated = '{!! trans('auth.unauthenticated') !!}';
+    window.select_lang = '{!! __('Select') !!}';
 
     /* toast */
     window.question_color = '#d39e00';
@@ -76,15 +77,17 @@
         let msg = [], btn = [];
 
         /* ERROR */
-        msg[-1] = '{!! trans('mensaje.-1') !!}';
-        msg[-2] = '{!! trans('mensaje.-2') !!}';
-        msg[-3] = '{!! trans('mensaje.-3') !!}';
+        msg[-1] = '{!! trans('mensaje.-1') !!}'; // No pudo realizarse la operación!
+        msg[-2] = '{!! trans('mensaje.-2') !!}'; // Acceso denegado, no estás autenticado!
+        msg[-3] = '{!! trans('mensaje.-3') !!}'; // Acceso denegado, no está autorizado!
         msg[-4] = '{!! trans('mensaje.-4') !!}';
         msg[-5] = '{!! trans('mensaje.-5') !!}';
         msg[-6] = '{!! trans('mensaje.-6') !!}';
         msg[-7] = '{!! trans('mensaje.-7') !!}';
         msg[-8] = '{!! trans('mensaje.-8') !!}';
         msg[-9] = '{!! trans('mensaje.-9') !!}';
+        msg[-10] = '{!! trans('mensaje.-10') !!}'; // La opcion elegida es invalida!
+        msg[-11] = '{!! trans('mensaje.-11') !!}'; // Cero (0) no es un numero valido para una iglesia!
 
         /* SUCCESS */
         msg[1] = '{!! trans('mensaje.1') !!}';
@@ -99,7 +102,7 @@
         let btn_css = 'style="font-size: .9em; margin-top: -3px; padding: 0 5px;"';
         btn[0] = ' ';
         btn[1] = '<a href="{!! url('login') !!}" class="btn btn-outline-dark" '+btn_css+'>{!! trans('btn.auth') !!}</a>';
-        btn[2] = '<a href="{!! URL::previous() !!}" class="btn btn-outline-dark btn-behind" '+btn_css+'>{!! trans('btn.behind') !!}</a>';
+        btn[2] = '<a href="{!! URL::previous() !!}" class="btn btn-outline-light ml-2 btn-behind" '+btn_css+'>{!! trans('btn.behind') !!}</a>';
 
         if (num < 0)
             iziToast.error({message: (msg[num]+' '+btn[btn_number]), position: 'topRight', timeout: time, backgroundColor: error_color, theme: 'dark'});

@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
             ['name' => 'Oriannys Rodriguez', 'email' => 'oriannys@gmail.com'],
             ['name' => 'Gonzalo Zavala', 'email' => 'gonzalo@gmail.com'],
             ['name' => 'Charles Rodriguez', 'email' => 'admin@gmail.com'],
-            ['name' => 'Pastor Rodriguez', 'email' => 'pastor@gmail.com'],
+            ['name' => 'Aarón Rodriguez', 'email' => 'pastor@gmail.com'],
         ];
 
         foreach ($data as $people) {
@@ -30,28 +30,6 @@ class ProductsTableSeeder extends Seeder
             $finances = factory(App\Finance::class, 10)->create([
                 'user_id' => $user->id,
             ]);
-
-            if($user->id == 6) { /* Si es admin@gmail.com */
-                factory(App\Finance::class)->create([
-                    'user_id' => $user->id,
-                    'finance_classification_id' => 4,
-                    'currency_id' => 1,
-                    'debit_to' => 1,
-                    'amount' => 4,
-                    'debt' => null,
-                    'tithe' => 0,
-                ]);
-
-                factory(App\Finance::class)->create([
-                    'user_id' => $user->id,
-                    'finance_classification_id' => 4,
-                    'currency_id' => 2,
-                    'debit_to' => 1,
-                    'amount' => 4,
-                    'debt' => null,
-                    'tithe' => 0,
-                ]);
-            }
 
         }
     }

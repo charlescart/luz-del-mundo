@@ -14,23 +14,30 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        //Permission list
+        //Permisos de Configuracion -> Roles
         Permission::create(['name' => 'roles.index']);
         Permission::create(['name' => 'roles.create']);
         Permission::create(['name' => 'roles.show']);
         Permission::create(['name' => 'roles.edit']);
         Permission::create(['name' => 'roles.destroy']);
 
+        //Permisos de Configuracion -> Asignar Roles
         Permission::create(['name' => 'assing-roles.index']);
         Permission::create(['name' => 'assing-roles.edit']);
 
+        //Permisos de Configuracion -> Invitar Usuario
         Permission::create(['name' => 'guest-user.index']);
         Permission::create(['name' => 'guest-user.create']);
         Permission::create(['name' => 'guest-user.edit']);
 
+        //Permisos de Mi Iglesia -> Config. Mi Iglesia
+        Permission::create(['name' => 'churches.index']);
+        Permission::create(['name' => 'churches.create']);
+        Permission::create(['name' => 'churches.destroy']);
+
 //        factory(Role::class, 50)->create();
 
-        //Admin
+        //Rol de Administrador
         $admin = Role::create(['name' => 'Administrator']);
 
         /* Menu de Configuracion -> Roles */
@@ -48,7 +55,7 @@ class PermissionsTableSeeder extends Seeder
             'assing-roles.edit',
         ]);
 
-        /* Menu de Configuracion -> Invitar User, table "guest_users" */
+        /* Menu de Configuracion -> Invitar User */
         $admin->givePermissionTo([
             'guest-user.index',
             'guest-user.create',
@@ -58,11 +65,14 @@ class PermissionsTableSeeder extends Seeder
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
 
-        //Guest
-        $guest = Role::create(['name' => 'Shepherd']);
+        //Rol de Pastor Jefe de Mision
+        $pastor = Role::create(['name' => 'Pastor Jefe de Mision']);
 
-        $guest->givePermissionTo([
-            'roles.show'
+        // Menu Iglesia -> Config. Iglesia
+        $pastor->givePermissionTo([
+            'churches.index',
+            'churches.create',
+            'churches.destroy',
         ]);
 
         /*Rol de quien maneja el ingreso de diezmo para control del pastor*/
@@ -72,7 +82,7 @@ class PermissionsTableSeeder extends Seeder
         $user = User::find(6); //Administrator Rodriguez
         $user->assignRole('Administrator');
         $user = User::find(7); //Pastor Rodriguez
-        $user->assignRole('Shepherd');
+        $user->assignRole('Pastor Jefe de Mision');
 
 
     }

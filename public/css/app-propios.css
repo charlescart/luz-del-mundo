@@ -20,11 +20,12 @@ button, input { outline: none !important;}
 * Formularios
 */
 .form-material .form-group{ position: relative; margin-bottom: .75rem; }
-.form-control { /*height: calc(2.25rem + 2px);*/ border: 1px solid #dee2e6;border-radius: 0;padding: 0.375rem 0.75rem; background-color: transparent;}
+.form-control { /*height: calc(2.25rem + 2px);*/ border: 1px solid #dee2e6;/* border-radius: 0; */padding: 0.375rem 0.75rem; background-color: transparent;}
 .form-control::-moz-placeholder {font-size: 0.9em;font-weight: 300;font-family: "Poppins", sans-serif;color: #aaa;}
 .form-control::-webkit-input-placeholder { font-size: 0.9em;font-weight: 300;font-family: "Poppins", sans-serif;color: #aaa; }
 .form-material .form-control:focus{ -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0); }
 .form-control:-ms-input-placeholder { font-size: 0.9em; font-weight: 300; font-family: "Poppins", sans-serif; color: #aaa;}
+.form-control:disabled, .form-control[readonly] {cursor: not-allowed; opacity: 1; background-color: #e9ecef78;}
 /*.invalid-feedback{ font-weight: lighter; margin-top: -30px; }*/
 .form-control:focus {
   color: #495057;
@@ -189,6 +190,7 @@ input.input-material {
   border: none;
   border-bottom: 1px solid #132fb3;
   padding: 5px 0 !important;
+  border-radius: 0;
 }
 
 input.input-material.is-invalid {

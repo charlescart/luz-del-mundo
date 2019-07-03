@@ -17,6 +17,8 @@ return [
     -7 => 'Lo sentimos, no se podrá avisar por Email!',
     -8 => 'No se lograron obtener los roles del usuario!',
     -9 => 'Ya se ha enviado una invitación a el email especificado!',
+    -10 => 'La opcion elegida es invalida!',
+    -11 => 'Cero (0) no es un numero valido para una iglesia!',
 
     /* Success */
     1 => 'Operación realizada con éxito!',

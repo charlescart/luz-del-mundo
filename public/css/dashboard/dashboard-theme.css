@@ -97,7 +97,7 @@ table {
   position: relative;
   width: calc(100% - 250px);
   min-height: calc(100vh - 70px);
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 .content-inner.active {
@@ -1524,6 +1524,7 @@ footer.main-footer {
   width: 100%;
   background: #2f333e;
   color: #fff;
+  right: 0;
 }
 
 footer.main-footer a {
@@ -1616,7 +1617,7 @@ section.charts div[class*="col-"] {
 .form-control {
   height: calc(2.25rem + 2px);
   border: 1px solid #dee2e6;
-  border-radius: 0;
+  /* border-radius: 0; */
   padding: 0.375rem 0.75rem;
 }
 
@@ -2142,9 +2143,9 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn:focus, .btn.focus {
-  outline: 0;
+/*   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.25); */
 }
 
 .btn.disabled, .btn:disabled {
@@ -2156,33 +2157,33 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-primary {
-  color: color-yiq(#796AEE);
+  /* color: color-yiq(#796AEE);
   background-color: #796AEE;
-  border-color: #796AEE;
+  border-color: #796AEE; */
 }
 
 .btn-primary:hover {
-  color: color-yiq(#5a48ea);
+  /* color: color-yiq(#5a48ea);
   background-color: #5a48ea;
-  border-color: #503ce9;
+  border-color: #503ce9; */
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.5);
+/*   -webkit-box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(121, 106, 238, 0.5); */
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-  color: color-yiq(#796AEE);
+  /* color: color-yiq(#796AEE);
   background-color: #796AEE;
-  border-color: #796AEE;
+  border-color: #796AEE; */
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: color-yiq(#503ce9);
+  /* color: color-yiq(#503ce9);
   background-color: #503ce9;
-  border-color: #4631e7;
+  border-color: #4631e7; */
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,

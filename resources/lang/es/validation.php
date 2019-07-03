@@ -98,6 +98,7 @@ return [
 	'custom' => [
 		'attribute-name' => [
 			'rule-name'  => 'custom-message',
+			'rule-name'  => 'custom-message',
 		],
 	],
 
@@ -127,5 +128,14 @@ return [
         'tithe' => 'diezmo',
         'fifth_part' => 'quinta parte',
         'send_email' => 'enviar email',
+        'country' => 'pais',
+        'state' => 'estado',
+        'city' => 'ciudad',
+        'custom_name' => 'personalizar nombre de iglesia',
+        'name_shepherd' => 'pastor jefe de misión',
+        'phone' => 'telefono',
+        'condition' => 'condición',
+        'address' => 'dirección',
+        'number_of_church' => 'número de iglesia',
 	],
 ];
