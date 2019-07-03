@@ -50,6 +50,12 @@ Route::group(['middleware' => ['lang']], function () {
     Route::post('getFinancesForUser', 'FinanceController@getFinancesForUser')->name('finances.getFinancesForUser');
     /*Fin de Routes de Finance*/
 
+    /*Routes de Mi Iglesia */
+    Route::resource('churches', 'ChurchController')->only(['index', 'create', 'store']);
+    Route::post('getProvinces', 'ChurchController@getProvinces')->name('churches.getProvinces');
+    Route::post('getCities', 'ChurchController@getCities')->name('churches.getCities');
+    /*Fin de Routes de Mi Iglesia */
+
     Route::get('/', function () {
         return view('welcome');
     });

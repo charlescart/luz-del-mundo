@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
@@ -43,5 +42,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function finances()
     {
         return $this->hasMany('App\Finance');
+    }
+
+    public function churches()
+    {
+        return $this->belongsToMany('App\Church')->withPivot('member_clasification_id')->withTimestamps();
+    }
+
+    public function hasAChurc($user)
+    {
+
     }
 }

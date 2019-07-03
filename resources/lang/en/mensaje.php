@@ -17,6 +17,8 @@ return [
     -7 => 'Im sorry, you can not be notified by email!',
     -8 => 'Unable to obtain user roles!',
     -9 => 'An invitation has already been sent to the specified email!',
+    -10 => 'The chosen option is invalid!',
+    -11 => 'Zero (0) is not a valid number for a church!',
 
     /* Success */
     1 => 'Operation carried out successfully!',

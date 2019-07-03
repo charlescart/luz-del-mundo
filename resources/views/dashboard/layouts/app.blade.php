@@ -212,7 +212,7 @@
     </header>
     <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
-        <nav class="side-navbar">
+        <nav class="side-navbar text-dark">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center justify-content-center">
                 <div class="avatar"><img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="{{ Auth::user()->name }}" class="img-fluid rounded-circle"></div>
@@ -221,29 +221,29 @@
                     <p>Web Designer</p>
                 </div>
             </div>
-            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-            <ul class="list-unstyled">
+            <!-- Sidebar Navidation Menus-->
+            <span class="heading text-dark">Main</span>
+            <ul class="list-unstyled text-dark">
+
                 <li class="{{ ($module == 'Home') ? 'active' : '' }}">
                     <a href="{{route('home')}}">
-                        <i class="icon-home"></i>
-                        {{ __('Home') }}
+                        <i class="icon-home"></i> {{ __('Home') }}
                     </a>
                 </li>
+
                 @hasrole('Administrator')
                     <li>
                         <a href="#configuracionDropdown" aria-expanded="{{ ($dropDown == 'Configuration') ? 'true' : 'false' }}" data-toggle="collapse">
-                            <i class="fa fa-cogs" aria-hidden="true"></i>
-                            {{ __('Configuration') }}
+                            <i class="fa fa-cogs" aria-hidden="true"></i> {{ __('Configuration') }}
                         </a>
                         <ul id="configuracionDropdown" class="collapse list-unstyled {{ ($dropDown == 'Configuration') ? 'show' : '' }} ">
                             <li class="{{ ($module == 'Roles') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Roles') }}</a></li>
                             <li class="{{ ($module == 'assingRoles') ? 'active' : '' }}"><a href="{{ route('assing-roles.index') }}">{{ __('Assing Roles') }}</a></li>
                             <li class="{{ ($module == 'guestUser') ? 'active' : '' }}"><a href="{{ route('guest-user.index') }}">{{ __('Invite User') }}</a></li>
-                            {{--<li><a href="#">Page</a></li>
-                            <li><a href="#">{{ url()->current() }}</a></li>--}}
                         </ul>
                     </li>
                 @endhasrole
+
                 <li>
                     <a href="#mysFinancesDropdown" aria-expanded="{{ ($dropDown == 'Finances') ? 'true' : 'false' }}" data-toggle="collapse">
                         <i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -254,24 +254,41 @@
                         <li class="{{ ($module == 'Tithe') ? 'active' : '' }}"><a href="{{ route('finances.index') }}">{{ __('Mys Tithes') }}</a></li>
                     </ul>
                 </li>
+
+                @hasanyrole('Pastor Jefe de Mision|Administrator')
+                    <li>
+                        <a href="#churchDropdown" aria-expanded="{{ ($dropDown == 'Church') ? 'true' : 'false' }}" data-toggle="collapse">
+                            <i class="fa fa-cogs" aria-hidden="true"></i> {{ __('My Church') }}
+                        </a>
+                        <ul id="churchDropdown" class="collapse list-unstyled {{ ($dropDown == 'Church') ? 'show' : '' }} ">
+                            <li class="{{ ($module == 'Config. Church') ? 'active' : '' }}"><a href="{{ route('churches.index') }}">{{ __('Config. My Church') }}</a></li>
+                            <li class="{{ ($module == 'Config. Work Team') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Config. Work Team') }}</a></li>
+                            <li class="{{ ($module == 'Pastoral Tithes') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Pastoral Tithes') }}</a></li>
+                            <li class="{{ ($module == 'Reports of Tithes') ? 'active' : '' }}"><a href="{{ route('roles.index') }}">{{ __('Reports of Tithes') }}</a></li>
+                        </ul>
+                    </li>
+                @endhasanyrole
+
                 {{--<li class="{{ ($module == 'Finances') ? 'active' : '' }}">
                     <a href="{{ route('finances.index') }}">
                         <i class="fa fa-bar-chart"></i> {{ __('Finances') }}
                     </a>
                 </li>--}}
-                <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
+
+                {{--  iconos individuales  --}}
+                {{--  <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>  --}}
+                {{--  <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>  --}}
+                {{--  <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>  --}}
             </ul>
-            <span class="heading">Extras</span>
+            {{--  <span class="heading">Extras</span>
             <ul class="list-unstyled">
                 <li><a href="#"> <i class="icon-flask"></i>Demo </a></li>
                 <li><a href="#"> <i class="icon-screen"></i>Demo </a></li>
                 <li><a href="#"> <i class="icon-mail"></i>Demo </a></li>
                 <li><a href="#"> <i class="icon-picture"></i>Demo </a></li>
-            </ul>
+            </ul>  --}}
         </nav>
-        <div class="content-inner">
+        <div class="content-inner bg-white">
             @yield('content')
             <!-- Page Footer-->
             <footer class="main-footer p-0 p-sm-2">

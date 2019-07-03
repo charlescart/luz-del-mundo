@@ -378,6 +378,12 @@ function commonFunctions() {
                 selft.clean_invalidation_form(this);
             });
             /* Fin de limpia de (is-invalid) el input al hacer keyup */
+            
+            /* Limpia de (is-invalid) el check y select */
+            $(document).on('change', 'input.is-invalid, select.is-invalid', function (event) {
+                selft.clean_invalidation_form(this);
+            });
+            /* Fin de limpia de (is-invalid) el check y select */
 
             /* BOTON ATRAS DE TOAST */
             $(document).on('click', '.btn-behind', function (event) {
