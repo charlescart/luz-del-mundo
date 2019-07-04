@@ -13,30 +13,40 @@
             <p class="card-text text-justify">{{ $church->address }}</p>
             <p class="card-text mb-0"><strong>{{ __('Ubication') }}</strong>: {{ $church->city->province->country->name }} / {{ $church->city->name }}</p>
             <p class="card-text mb-0"><strong>{{ __('Create') }}</strong>: {{ $church->created_at->toFormattedDateString() }}</p>
-            <p class="card-text {!! ($church->custom_name_at) ? 'text-success':'text-danger' !!}">
+            <span class="card-text d-block mb-2">
                 @if ($church->custom_name_at)
                     {{ __('Church name verified') }}
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                 @else
                     {{ __('Name in verification') }}
-                    {{-- <i class="fa fa-times" aria-hidden="true"></i> --}}
-                    @endif
-                </p>
-                            <div class="spinner-border text-warning" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-            <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-cog" aria-hidden="true"></i> {{ __('Configuration') }}
+                    <div class="spinner-grow spinner-grow-sm text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                @endif
+            </span>
+            <!--Boton action de iglesia-->
+            <div class="btn-group dropright">
+                <button type="button" aria-labelledby="dropdownChurch" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropright
                 </button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" aria-labelledby="dropdownChurch">
+                    <!-- Dropdown menu links -->
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item btn-destroy" type="button">Something else here</button>
+                </div>
+            </div>
+            {{--  <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuChurch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cog" aria-hidden="true"></i> {{ __('Configuration') }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuChurch">
                     @if(Auth::user()->hasPermissionTo('churches.destroy'))
-                    <a class="dropdown-item btn-edit" href="#!" style="color: #000;">
+                    <a class="dropdown-item btn-destroy" href="#!" style="color: #000;">
                         <i class="fa fa-trash-o mr-1" aria-hidden="true"></i> {{ __('btn.delete') }}
                     </a>
                     @endif
                 </div>
-            </div>
+            </div>  --}}
         </div>
     </div>
 @endforeach

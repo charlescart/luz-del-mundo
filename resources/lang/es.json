@@ -92,5 +92,11 @@
     "Ubication": "Ubicación",
     "Create": "Creada",
     "Church name verified": "Nombre de iglesia verificado",
-    "Name in verification": "Nombre en verificación"
+    "Name in verification": "Nombre en verificación",
+    "Verify Your Email Address": "Verifica tu correo electronico",
+    "Before continuing, check your email to see a verification link. If you did not receive the email, ask for another one by clicking on the request another verification email button": "Antes de continuar, consulte su correo electrónico para ver un enlace de verificación. Si no recibió el correo electrónico solicite otro haciendo clic en el boton solicitar otro email de verificación",
+    "request another": "solicitar otro email de verificación",
+    "A fresh verification link has been sent to your email address": "Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico",
+    "Due to security reasons we ask you to confirm your email, this helps us verify that you are really a person with a valid email with which we can have communication. Once this filter is over, you can use all the benefits offered by the platform": "Debido a motivos de seguridad pedimos confirmes tu email, esto nos ayuda a verificar que realmente eres una persona con un email valido con la que podemos tener comunicación. Una vez superado este filtro podras utilizar todas las bondades que te brinda la plataforma",
+    "E-mail Sent": "Email Enviado"
 }
