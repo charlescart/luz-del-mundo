@@ -8,9 +8,9 @@
         </div>
     </header>
     <!-- Dashboard Counts Section-->
-    <section class="dashboard-counts no-padding-bottom">
-        <div class="container-fluid">
-            <div class="row bg-white has-shadow">
+    <section class="dashboard-counts no-padding-bottom pt-1">
+        <div class="container-fluid p-2">
+            <div class="row bg-white has-shadow p-1">
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                     <div class="item d-flex align-items-center">
@@ -67,8 +67,8 @@
         </div>
     </section>
     <!-- Dashboard Header Section    -->
-    <section class="dashboard-header">
-        <div class="container-fluid">
+    <section class="dashboard-header p-0">
+        <div class="container-fluid p-2">
             <div class="row">
                 <!-- Statistics -->
                 <div class="statistics col-lg-3 col-12">
@@ -119,7 +119,7 @@
     </section>
     <!-- Client Section-->
     <section class="client no-padding-top">
-        <div class="container-fluid">
+        <div class="container-fluid p-2">
             <div class="row">
                 <!-- Work Amount  -->
                 <div class="col-lg-4">

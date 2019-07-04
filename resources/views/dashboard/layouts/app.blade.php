@@ -9,21 +9,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ secure_asset('favicon.png') }}">
 
     <title>{{ config('app.name', 'Laravel') }} - {{ __('Dashboard') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
     @include('mensajes')
     @stack('scripts')
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
 
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('css/plugins/font-awesome/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/plugins/font-awesome/font-awesome.min.css') }}">
 </head>
 <body>
 <div class="page">
@@ -44,7 +44,7 @@
                         <!-- Navbar Brand -->
                         <a href="{{ route('home') }}" class="navbar-brand d-none d-sm-inline-block p-0">
                             <div class="brand-text d-none d-lg-inline-block">
-                                <img src="{{ asset('img/logo_2.png') }}" alt="" class="img-fluid">
+                                <img src="{{ secure_asset('img/logo_2.png') }}" alt="" class="img-fluid">
                                 <span class="text-luzdelmundo">{{ config('app.name', 'Laravel') }}</span>
                             </div>
                             <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
@@ -161,29 +161,29 @@
                             <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
                                 @switch(App::getLocale())
                                     @case('en')
-                                        <img src="{{ asset('img/united-states.png') }}" width="20" height="auto" alt="{{ __('English') }}">
+                                        <img src="{{ secure_asset('img/united-states.png') }}" width="20" height="auto" alt="{{ __('English') }}">
                                         <span class="d-none d-sm-inline-block">{{ __('English') }}</span>
                                         @break
 
                                     @case('es')
-                                        <img src="{{ asset('img/spain.png') }}" width="20" height="auto" alt="{{ __('Spanish') }}">
+                                        <img src="{{ secure_asset('img/spain.png') }}" width="20" height="auto" alt="{{ __('Spanish') }}">
                                         <span class="d-none d-sm-inline-block">{{ __('Spanish') }}</span>
                                         @break
 
                                     @default
-                                        <img src="{{ asset('img/united-states.png') }}" width="20" height="auto" alt="{{ __('English') }}">
+                                        <img src="{{ secure_asset('img/united-states.png') }}" width="20" height="auto" alt="{{ __('English') }}">
                                         <span class="d-none d-sm-inline-block">{{ __('English') }}</span>
                                 @endswitch
                             </a>
                             <ul aria-labelledby="languages" class="dropdown-menu">
                                 <li>
                                     <a rel="nofollow" href="{{ url('lang', 'es') }}" class="dropdown-item">
-                                        <img src="{{ asset('img/spain.png') }}" width="20" height="auto" alt="English" class="mr-2"> {{ __('Spanish') }}
+                                        <img src="{{ secure_asset('img/spain.png') }}" width="20" height="auto" alt="English" class="mr-2"> {{ __('Spanish') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a rel="nofollow" href="{{ url('lang', 'en') }}" class="dropdown-item">
-                                        <img src="{{ asset('img/united-states.png') }}" width="20" height="auto" alt="English" class="mr-2"> {{ __('English') }}
+                                        <img src="{{ secure_asset('img/united-states.png') }}" width="20" height="auto" alt="English" class="mr-2"> {{ __('English') }}
                                     </a>
                                 </li>
                                 {{--  <li>
