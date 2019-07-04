@@ -15,10 +15,10 @@
     </div>
 @endsection
 @push('styles')
-    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app-propios.css') }}" rel="stylesheet">
 @endpush
 @push('scripts')
-    <script src="{{ asset('js/common/common-functions.js') }}" defer></script>
-    <script src="{{ asset('js/plugins/particles/particles.min.js') }}" defer></script>
-    <script src="{{ asset('js/welcome.js') }}" defer></script>
+    <script src="{{ secure_asset('js/common/common-functions.js') }}" defer></script>
+    <script src="{{ secure_asset('js/plugins/particles/particles.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/welcome.js') }}" defer></script>
 @endpush

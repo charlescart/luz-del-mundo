@@ -42,40 +42,40 @@
 
 @push('styles')
     {{--Styles DataTables--}}
-    <link href="{{ asset('css/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="{{ asset('css/dashboard/fontastic.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/dashboard/fontastic.css') }}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('css/dashboard/dashboard-theme.css') }}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{ secure_asset('css/dashboard/dashboard-theme.css') }}" id="theme-stylesheet">
     <!-- Font Roboto-->
-    <link href="{{ asset('css/fonts-roboto.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/fonts-roboto.css') }}" rel="stylesheet">
     <!-- Style propios-->
-    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app-propios.css') }}" rel="stylesheet">
     {{--  Style Blockui  --}}
-    <link href="{{ asset('css/plugins/blockui/blockui.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/plugins/blockui/blockui.css') }}" rel="stylesheet">
     {{--  Style button loader  --}}
-    <link href="{{ asset('css/plugins/button-loader/button-loader.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/plugins/button-loader/button-loader.css') }}" rel="stylesheet">
     {{--  Style Plugin izi-toast  --}}
-    <link href="{{ asset('css/plugins/izi-toast/izi-toast.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/plugins/izi-toast/izi-toast.min.css') }}" rel="stylesheet">
     {{--  Style Plugin TagEditor  --}}
-    <link href="{{ asset('css/common/tag-editor.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/common/tag-editor.css') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
     {{-- Plugin DataTables --}}
-    <script src="{{ asset('js/plugins/datatables/datatables.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/plugins/datatables/datatables.min.js') }}" defer></script>
     {{--  Plugin Blockui  --}}
-    <script src="{{ asset('js/plugins/blockui/blockui.js') }}" defer></script>
+    <script src="{{ secure_asset('js/plugins/blockui/blockui.js') }}" defer></script>
     {{--  Plugin button loader  --}}
-    <script src="{{ asset('js/plugins/button-loader/button-loader.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/plugins/button-loader/button-loader.min.js') }}" defer></script>
     {{--  Plugin izi-toast  --}}
-    <script src="{{ asset('js/plugins/izi-toast/izi-toast.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/plugins/izi-toast/izi-toast.min.js') }}" defer></script>
     <!-- Functions comunes-->
-    <script src="{{ asset('js/common/common-functions.js') }}" defer></script>
+    <script src="{{ secure_asset('js/common/common-functions.js') }}" defer></script>
     {{--  Script de Plugin TagEditor--}}
-    <script src="{{ asset('js/common/tag-editor.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/common/tag-editor.min.js') }}" defer></script>
     {{--  Script de plugin caret --}}
-    <script src="{{ asset('js/common/caret.min.js') }}" defer></script>
+    <script src="{{ secure_asset('js/common/caret.min.js') }}" defer></script>
     {{--  Script de la funcionalidad index --}}
-    <script src="{{ asset('js/dashboard/assing-roles/assing-roles-index.js') }}" defer></script>
+    <script src="{{ secure_asset('js/dashboard/assing-roles/assing-roles-index.js') }}" defer></script>
 @endpush

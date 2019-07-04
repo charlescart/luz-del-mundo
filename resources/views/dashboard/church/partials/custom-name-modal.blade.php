@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <img class="mr-2" src="{{ asset('img/information.svg') }}" alt="{{ __('Information') }}" width="24px" height="auto">
+            <img class="mr-2" src="{{ secure_asset('img/information.svg') }}" alt="{{ __('Information') }}" width="24px" height="auto">
             <h5 class="modal-title" id="customNameModal">{{ __('Information') }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
