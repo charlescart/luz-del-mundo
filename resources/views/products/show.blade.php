@@ -16,11 +16,11 @@
     </div>
 @endsection
 @push('styles')
-    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app-propios.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/plugins/datatables/datatables.min.css') }}" rel="stylesheet">
 @endpush
 @push('scripts')
-    <script src="{{ asset('js/plugins/datatables/datatables.min.js') }}"></script>
-    <script src="{{ asset('js/common/common-functions.js') }}"></script>
-    <script src="{{ asset('js/products/products-index.js') }}"></script>
+    <script src="{{ secure_asset('js/plugins/datatables/datatables.min.js') }}"></script>
+    <script src="{{ secure_asset('js/common/common-functions.js') }}"></script>
+    <script src="{{ secure_asset('js/products/products-index.js') }}"></script>
 @endpush

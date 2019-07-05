@@ -617,17 +617,17 @@
 @endsection
 @push('styles')
     <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="{{ asset('css/dashboard/fontastic.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/dashboard/fontastic.css') }}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('css/dashboard/dashboard-theme.css') }}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{ secure_asset('css/dashboard/dashboard-theme.css') }}" id="theme-stylesheet">
     <!-- Font Roboto-->
-    <link href="{{ asset('css/fonts-roboto.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/fonts-roboto.css') }}" rel="stylesheet">
     <!-- Style propios-->
-    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app-propios.css') }}" rel="stylesheet">
 @endpush
 @push('scripts')
     <!-- Functions comunes-->
-    <script src="{{ asset('js/common/common-functions.js') }}" defer></script>
+    <script src="{{ secure_asset('js/common/common-functions.js') }}" defer></script>
     {{--<script src="vendor/jquery.cookie/jquery.cookie.js"></script>--}}
-    <script src="{{ asset('js/dashboard/dashboard.js') }}" defer></script>
+    <script src="{{ secure_asset('js/dashboard/dashboard.js') }}" defer></script>
 @endpush

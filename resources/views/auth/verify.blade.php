@@ -6,7 +6,7 @@
         <div class="col-md-8 p-1">
             <div class="card">
                 <div class="card-header p-2">
-                    <img src="{{ asset('img/email-vefiried.svg') }}" alt="" style="max-width: 24px; height: auto;">
+                    <img src="{{ secure_asset('img/email-vefiried.svg') }}" alt="" style="max-width: 24px; height: auto;">
                     {{ __('Verify Your Email Address') }}
                 </div>
 
@@ -34,5 +34,5 @@
 @endsection
 
 @push('styles')
-    <link href="{{ asset('css/app-propios.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app-propios.css') }}" rel="stylesheet">
 @endpush
