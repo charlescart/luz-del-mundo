@@ -17,7 +17,7 @@ Route::get('lang/{lang}', function ($lang) {
     return \Redirect::back();
 })->where(['lang' => 'en|es']);
 
-Route::group(['middleware' => ['lang'], 'scheme' => 'https'], function () {
+Route::group(['middleware' => ['lang']], function () {
     /* Middleware verified (Email verificado) */
     Route::group(['middleware' => ['verified']], function () {
         /*Routes de Products*/
@@ -57,8 +57,8 @@ Route::group(['middleware' => ['lang'], 'scheme' => 'https'], function () {
         Route::post('getCities', 'ChurchController@getCities')->name('churches.getCities');
         /*Fin de Routes de Mi Iglesia */
 
-
         Route::get('/home', 'HomeController@index')->name('home');
+
     });
     /* Fin de Middleware verified (Email verificado) */
 
@@ -67,7 +67,7 @@ Route::group(['middleware' => ['lang'], 'scheme' => 'https'], function () {
         return view('welcome');
     });
 
-    Auth::routes(['verify' => true]);
     /*Fin Routes Auth*/
 
 });
+Auth::routes(['verify' => true]);
