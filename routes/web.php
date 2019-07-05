@@ -58,7 +58,6 @@ Route::group(['middleware' => ['lang']], function () {
         /*Fin de Routes de Mi Iglesia */
 
         Route::get('/home', 'HomeController@index')->name('home');
-
     });
     /* Fin de Middleware verified (Email verificado) */
 
@@ -67,7 +66,6 @@ Route::group(['middleware' => ['lang']], function () {
         return view('welcome');
     });
 
+    Auth::routes(['verify' => true]);
     /*Fin Routes Auth*/
-
 });
-Auth::routes(['verify' => true]);
