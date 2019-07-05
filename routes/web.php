@@ -17,7 +17,7 @@ Route::get('lang/{lang}', function ($lang) {
     return \Redirect::back();
 })->where(['lang' => 'en|es']);
 
-Route::group(['middleware' => ['lang']], function () {
+Route::group(['middleware' => ['lang'], 'scheme' => 'https'], function () {
     /* Middleware verified (Email verificado) */
     Route::group(['middleware' => ['verified']], function () {
         /*Routes de Products*/
