@@ -66,7 +66,7 @@ Route::group(['middleware' => ['lang']], function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    
+
     Auth::routes(['verify' => true]);
     /*Fin Routes Auth*/
 
