@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="card-body text-justify pl-2 pr-2">
-                    @if (session('resent'))
+                    @if (!session('resent'))
                         <div class="alert alert-success mb-3" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>

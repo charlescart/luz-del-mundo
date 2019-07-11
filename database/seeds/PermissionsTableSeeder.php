@@ -62,9 +62,17 @@ class PermissionsTableSeeder extends Seeder
             'guest-user.edit',
         ]);
 
+        /* Menu Iglesia -> Config. Iglesia */
+        $admin->givePermissionTo([
+            'churches.index',
+            'churches.create',
+            'churches.destroy',
+        ]);
+
+
         //$admin->givePermissionTo('products.index');
         //$admin->givePermissionTo(Permission::all());
-
+        // ########################################################################3
         //Rol de Pastor Jefe de Mision
         $pastor = Role::create(['name' => 'Pastor Jefe de Mision']);
 
